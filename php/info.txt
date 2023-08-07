@@ -1,0 +1,10 @@
+# Please do not add space after the equals. Thank you.
+# Notes: lines with # will be skipped
+
+name=Gemba Server
+category=Machine Monitoring System
+version=v2.0
+update=2023-03-27
+lang=English
+fw=v1.000 Build 000
+timezone=Asia/Manila

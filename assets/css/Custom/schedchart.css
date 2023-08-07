@@ -1,0 +1,478 @@
+#schedule-tab {
+    /* height: calc(100vh - 47px); */
+    height: 100%; /* fix for lower buttons not being displayed on mobile */
+    display: flex;
+    flex-direction: column;
+}
+
+#schedchart-container {
+    width: 100%;
+    height: calc(100% - 5px);
+    margin-top: 3px;
+    background-color: white;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+#schedchart {
+    /* height: calc(100% - 6.0625rem); */
+    height: 100%;
+}
+
+#schedchart-footer {
+    display: flex;
+    height: 40px;
+    background-color: black;
+    padding: 0.3rem;
+}
+
+#schedchart-nav {
+    display: flex;
+    margin-left: auto;
+}
+
+#schedchart-pagination-container {
+    display: flex;
+}
+
+#schedule-grp {
+    display: flex;
+    align-items: center;
+}
+
+/*.date-container input {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.light .date-container input {
+    border-color: rgba(0, 0, 0, 0.3) !important;
+    color: rgba(0, 0, 0, 0.9) !important;
+}*/
+
+.tbl-container.schedTable {
+    margin-top: 1px;
+}
+
+/* .sched-filter-btn.icon-active i {
+    color: #28a745 !important;
+  } */
+
+/* .date-container input {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+} */
+
+/* grid */
+
+#schedule-subheader-table {
+    /*height: auto;*/
+    transition: all .2s;
+}
+
+#pgeSchedtitle {
+    grid-area: title;
+}
+
+#schedQR-btn-secured {
+    grid-area: sched-qr;
+    margin: 0;
+}
+
+#sched-show-data-btn {
+    grid-area: show-data;
+    margin: 0;
+}
+
+#add-sched-btn {
+    grid-area: add-sched;
+    margin: 0;
+}
+
+.schedToday {
+    grid-area: sched-today;
+    margin: 0;
+}
+
+#sched-from {
+    grid-area: sched-from;
+    width: 8.6rem;
+    margin: 0;
+}
+
+#sched-to {
+    grid-area: sched-to;
+    width: 8.6rem;
+    margin: 0;
+}
+
+.schedView {
+    grid-area: sched-view;
+    margin: 0;
+}
+
+#schedule-filter {
+    grid-area: sched-filter;
+    margin: 0;
+}
+
+#schedule-grp {
+    display: grid;
+    grid-template-columns: 4fr 8.5rem 2rem 8rem 5rem 8.6rem 8.6rem 4.5rem 7.5rem;
+    grid-template-areas: 'title show-data sched-qr add-sched sched-today sched-from sched-to sched-view sched-filter';
+    column-gap: 0.3rem;
+    row-gap: 0.3rem;
+    padding: 0.5rem 1rem;
+    transition: all .2s;
+}
+
+#toggle-sched {
+    grid-area: toggle-sched;
+    display: none;
+}
+
+#schedule-content {
+    height: 100%;
+}
+
+#schedule-content .inner-sidepanel .inner-body div:nth-child(n+12) {
+    display: none;
+}
+
+#schedfr, #schedto {
+    border-color: #ced4da !important;
+}
+
+/* .tbl-container.schedTable {
+    height: calc(100vh - 6.1rem);
+} */
+
+/* .tbl-container.schedTable .table-responsive {
+    height: 95% !important;
+} */
+
+/* @media only screen and (max-width: 940px) {
+    #schedchart {
+        height: calc(100% - 120px);
+    }
+    #schedule-grp {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 4fr 2rem 8rem 5rem 8.6rem 8.6rem 4.5rem 4.5rem;
+        grid-template-areas:
+            'title .        .         .           .          .        show-data  show-data'
+            '.     sched-qr add-sched sched-today sched-from sched-to sched-view sched-filter';
+    }
+
+    .tbl-container.schedTable {
+        height: calc(100vh - 8.2rem);
+    }
+} */
+
+/* @media only screen and (max-width: 840px) {
+    #schedule-grp {
+        grid-template-columns: 4fr 8rem 5rem 8.6rem 7.6rem 0.7rem 4.5rem 2rem 2rem;
+        grid-template-areas:
+            'title .         .           .          .         .         .          show-data    sched-qr'
+            '.     add-sched sched-today sched-from sched-to  sched-to  sched-view sched-filter sched-filter';
+    }
+
+    #sched-show-data-btn label {
+        display: none;
+    }
+} */
+
+/* @media only screen and (max-width: 790px) {
+    #schedule-grp {
+        grid-template-columns: 4fr 5rem 8.6rem 7.6rem 0.7rem 2.5rem 2rem 2rem 2rem;
+        grid-template-areas:
+            'title .           .          .         .        .           add-sched  show-data    sched-qr'
+            '.     sched-today sched-from sched-to  sched-to sched-view  sched-view sched-filter sched-filter';
+    }
+
+    #add-sched-btn label {
+        display: none;
+    }
+} */
+
+@media only screen and (max-width: 990px) {
+    #schedule-grp {
+        grid-template-columns: 4fr 1fr 5rem 8.6rem 1.7rem 2rem 2rem 2rem 7.5rem;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            'title . sched-qr show-data  add-sched add-sched add-sched add-sched sched-filter'
+            '.     . sched-today  sched-from sched-to  sched-to  sched-to  sched-to  sched-view';
+    }
+}
+
+@media only screen and (max-width: 620px) {
+
+    #schedchart {
+        /* height: calc(100% - 90px); */
+        height: 100%;
+    }
+
+    #schedchart.active {
+        /* height: calc(100% - 195px); */
+        height: 100%;
+    }
+
+    /* .tbl-container.schedTable {
+        height: calc(100vh - 6.1rem);
+    }
+    
+    .tbl-container.schedTable.active {
+        margin-top: 1px;
+        height: calc(100vh - 12.6rem);
+    } */
+
+
+
+    #schedule-grp {
+        background-color: red;
+        grid-template-columns: 4rem 1fr 9rem;
+        grid-template-rows: 1fr;
+        grid-template-areas: 'title . toggle-sched';
+        transition: ease-in-out all .25s;
+        height: 3.125rem;
+    }
+
+    /* #schedule-grp.active {
+        height: 9.649375rem;
+        grid-template-columns: 5.3rem 1fr 1fr 1fr 1fr 1fr 2rem 2rem 2rem 5.3rem;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            'title       .          .          .          .          .          show-data  sched-qr   add-sched  sched-filter'
+            'sched-today sched-from sched-from sched-from sched-from sched-from sched-from sched-from sched-from sched-view'
+            'sched-today sched-to   sched-to   sched-to   sched-to   sched-to   sched-to   sched-to   sched-to   sched-view'
+            '.           .          .          .          .          .          .          toggle-sched toggle-sched toggle-sched';
+    } */
+
+    #schedule-grp.active {
+        height: 9.649375rem;
+        padding: 0.5rem 0.5rem;
+        grid-template-columns: 4.8rem 1fr 2rem 2rem 2rem 4.8rem;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            'title       .          show-data  sched-qr   add-sched  sched-filter'
+            'sched-today sched-from sched-from sched-from sched-from sched-view'
+            'sched-today sched-to   sched-to   sched-to   sched-to   sched-view'
+            '.           .          .          toggle-sched toggle-sched toggle-sched';
+    }
+
+    #schedQR-btn-secured {
+        max-width: 2rem;
+        display: none;
+    }
+
+    #sched-show-data-btn label {
+        display: none;
+    }
+
+    #add-sched-btn label {
+        display: none;
+    }
+
+    #schedule-filter {
+        overflow: hidden;
+        white-space: nowrap;
+        display: block;
+        text-overflow: ellipsis; 
+    }
+
+    .active > #schedQR-btn-secured {
+        display: unset;
+    }
+
+    #sched-show-data-btn {
+        max-width: 2rem;
+        display: none;
+    }
+
+    .active > #sched-show-data-btn {
+        display: unset;
+    }
+
+    #add-sched-btn {
+        max-width: 2rem;
+        display: none;
+    }
+
+    .active > #add-sched-btn {
+        display: unset;
+    }
+
+    #sched-from {
+        width: auto;
+        display: none;
+    }
+
+    .active > #sched-from {
+        display: unset;
+    }
+
+    #sched-to {
+        width: auto;
+        display: none;
+    }
+
+    .active > #sched-to {
+        display: unset;
+    }
+
+    .schedToday {
+        align-self: stretch;
+        display: none;
+    }
+
+    .active > .schedToday {
+        display: unset;
+    }
+
+    .schedToday span{
+        display: none;
+    }
+
+    .schedView {
+        align-self: stretch;
+        display: none;
+    }
+
+    .active > .schedView {
+        display: unset;
+    }
+
+    /* .schedView span {
+        display: none;
+    } */
+
+    #schedule-filter {
+        display: none;
+    }
+
+    .active > #schedule-filter {
+        display: unset;
+    }
+
+    #toggle-sched {
+        display: unset;
+    }
+    /*fix lower button display: change height to 100%*/
+    .tbl-container.schedTable {
+        /* height: calc(100vh - 6.0625rem); */
+        height: 100%;
+        overflow-y: scroll;
+    }
+    
+    .tbl-container.schedTable .table-responsive{
+        /* height: calc(100vh - 6.0625rem); */
+        height: 100%;
+    }
+
+    #schedule-content {
+        /* height: calc(100vh - 6.0625rem); */
+        /*fix lower button display, 9.648375rem is the #schedule-grp height when expanded*/
+        overflow-y: scroll;
+        min-height: calc(100% - 9.649375rem); 
+        height: 100%; 
+    }
+
+}
+
+/* Add definite heights to schedule page subheaders. This is related to fix regarding
+hidden buttons at the bottom of schedule page when height available is low. */
+#schedule-content .tbl-container.schedTable {
+    height: 100%;
+}
+
+div#schedule-subheader-table {
+    /*height: 47px;*/
+}
+
+#schedule-content {
+    height: calc(100% - 47px);
+}
+
+div#schedule-grp {
+    /*height: 100%;*/
+    margin: 0;
+}
+
+@media screen and (max-width: 990px) and (min-width: 621px)
+{
+    div#schedule-subheader-table {
+        height: 82.8px;
+    }
+    #schedule-content {
+        height: calc(100% - 82.8px);
+    }
+}
+
+@media screen and (max-width: 620px)
+{
+    div#schedule-subheader-table:not(.active) {
+        height: 47px;
+    }
+    
+    div#schedule-subheader-table.active {
+        height: 158.357px;
+    }
+}
+
+/* Hanz: Fix for http-1201 bug #3 (cannot delete schedule end on sidepanel) */
+#sched_end_clear {
+    float: right;
+}
+/***************************************************************************/
+
+/***************************http-1201 bug #21 fix - Improved 12-15-22***************************/
+#scheduleTbl_paginate
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#scheduleTbl_paginate a.paginate_button.previous, #scheduleTbl_paginate a.paginate_button.next
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#scheduleTbl_paginate>span
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#schedule-tab .dataTables_info, #schedule-tab .dataTables_paginate 
+{
+    float: none;
+}
+
+#scheduleTbl_footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+@media screen and (max-width: 425px) {
+    #scheduleTbl_footer {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+}
+
+#scheduleTbl_info {
+    /* Same as datatables css padding-top */
+    padding-bottom: 0.85em;
+    white-space: pre-line;
+    word-break: normal;
+}
+/***********************************************************************************************/

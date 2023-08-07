@@ -1,0 +1,466 @@
+.progress {
+  position: relative;
+  background-color: rgba(49,55,58,0.4);
+}
+
+.thin-label {
+  font-weight: 300;
+}
+
+.form-control:disabled:not(.clstr), .form-control[readonly]:not(.system):not(.clstr) {
+  background-color: #e9ecef;
+}
+
+#srvIP[readonly], #srvGW[readonly] {
+  color: rgba(50,50,50,0.3);
+}
+
+input:disabled {
+  background-color: white;
+}
+
+#control-container {
+  height: calc(100vh - 48px);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  overflow-x: hidden;
+}
+
+.control-pane-lg {
+  height: 100%;
+  width: 50%;
+  min-height: 450px;
+  float: left;
+}
+
+.control-pane-lg:nth-child(1) {
+  padding-right: 7.5px;
+}
+
+.control-pane-lg:nth-child(2) {
+  padding-left: 7.5px;
+}
+
+.control-panel-frame {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(181,209,232,0.38);
+  border: 1px solid #c4cccc;
+  border-radius: 0.3rem;
+  position: relative;
+}
+
+.control-pane-lg:nth-child(2) .control-panel-frame {
+  background-color: transparent;
+  border: none;
+}
+
+.control-panel-header {
+  height: 35px;
+  width: calc(100% + 2px);
+  margin: -1px -1px 0px -1px;
+  background-color: rgba(0,0,0,0.7);
+  border-top-right-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+}
+
+.header-bgcolor {
+  background-color: rgba(181,209,232,0.38);
+  border: 1px solid #c4cccc;
+  width: calc(100% + 2px);
+  height: 35px;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  z-index: -1;
+  border-top-right-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+}
+
+.control-panel-header > label {
+  color: #f8f9fa;
+  font-weight: 300;
+  position: relative;
+  top: 6px;
+}
+
+.control-panel-body {
+  width: 100%;
+  height: calc(100% - 35px);
+}
+
+.control-panel-items {
+  height: calc((100% - 10px) / 10);
+  padding: 0px 15px;
+}
+
+.control-panel-items:nth-child(1) {
+  margin-top: 10px;
+}
+
+.control-panel-items > div {
+  border-radius: 0.3rem;
+}
+
+.control-panel-items > div:nth-child(1) {
+  width: 25%;
+  height: 75%;
+  float: left;
+  padding: 0px 10px;
+  border: 1px solid rgba(0,0,0,0.5);
+}
+
+.control-panel-items > div:nth-child(2) {
+  width: calc(75% - 30px);
+  height: 75%;
+  float: right;
+}
+
+.control-panel-items > div:nth-child(2) select, .control-panel-items > div:nth-child(2) input {
+  width: 100%;
+  height: 100%;
+}
+
+.control-panel-label {
+  position: relative;
+  top: calc(50% - 12px);
+  width: 100%;
+}
+
+.control-pane-sm {
+  height: calc(100vh - 70px);
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  max-height: 860px;
+  min-height: 540px;
+}
+
+.control-panel-body-dev {
+  width: calc(100% + 2px);
+  height: 80%;
+  background-color: rgba(181,209,232,0.38);
+  margin: 0px -1px;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  z-index: -1;
+  position: absolute;
+  top: 35px;
+  border: 1px solid #c4cccc;
+}
+
+.control-button-pane {
+  width: 100%;
+  height: calc(20% - 40px);
+  position: absolute;
+  bottom: 0px;
+}
+
+.control-button-pane > button {
+  width: calc(100% + 2px);
+  height: 100%;
+  margin: 0px -1px;
+}
+
+.control-panel-items input:disabled, .control-panel-items input.disabled {
+  background-color: white;
+}
+
+.control-panel-items input {
+  transition: background 0.3s ease;
+}
+
+.progress-pane {
+  width: 100%;
+  height: 42%;
+}
+
+.progress-pane > div {
+  width: calc(50% - 1px);
+  height: 100%;
+  float: left;
+}
+
+.endattgt-btn {
+  /* position: absolute;
+  top: 80%;
+  left: 15px; */
+  font-weight: 300;
+}
+
+.circle-progress-bar {
+  padding: 15px;
+}
+
+.circle-progress-bar > label {
+  padding-left: 10px;
+  font-weight: 300;
+}
+
+#rejectProgress, #countProgress {
+  width: 100%;
+  height: calc(100% - 30px);
+}
+
+.control-sm-frame {
+  height: 89%;
+  width: 100%;
+  background-color: rgba(181,209,232,0.38);
+  border-radius: 0.3rem;
+  margin-bottom: 10px;
+  border: 1px solid #c4cccc;
+  position: relative;
+}
+
+.control-sm-btn-frame {
+  height: calc(11% - 10px);
+  width: 100%;
+}
+
+.control-sm-btn-frame > button {
+  height: 100%;
+  width: 100%;
+}
+
+.control-sm-header {
+  width: 100%;
+  height: 35px;
+}
+
+.control-panel-items-sm {
+  /* FIX: Overlapping mis-aligned elements on small screen
+  8px padding from machine to top of container and 8px from progress percentage to bottom of container.
+  For v2.0, divisor is 16 because there are 16 main div elements:
+  1-12: Machine, job order, model, material, schedule, operator, cycle, prescale, target, prewarn, reject, status
+  13: Recording Ends at Target Quantity
+  14: Watchdog Timer
+  15: Progress (0.0/0.0)
+  16: Progress percentage (0.0%)
+  */
+  height: calc((100% - 16px) / 16);
+  width: 100%;
+  padding: 0px 15px;
+}
+
+.control-panel-items-sm > div:nth-child(1) {
+  /* width: 25%; */
+  height: 75%;
+  float: left;
+  /* padding: 0px 10px;
+  border: 1px solid rgba(0,0,0,0.5); */
+  font-size: 0.8rem;
+}
+
+/* FIX: Overlapping mis-aligned elements on small screen
+More specific selector used. Related to fix for bug #30 small display*/
+.control-panel-items-sm > div:nth-child(1):not(.recording_inner_div, .wdt_inner_div) {
+  padding: 0px 10px;
+  width: 28%;
+  border: 1px solid rgba(0,0,0,0.5);
+}
+
+.control-panel-items-sm > div:nth-child(2) {
+  width: calc(75% - 30px);
+  height: 75%;
+  float: right;
+}
+
+.control-panel-items-sm > div:nth-child(2) select, .control-panel-items-sm > div:nth-child(2) input {
+  width: 100%;
+  height: 100%;
+}
+
+.control-panel-items-sm > div {
+  border-radius: 0.3rem;
+}
+
+.control-panel-items-sm:last-child > div:nth-child(1) {
+  width: 100%;
+  border: none;
+  padding: 0px;
+}
+
+/*FIX: Overlapping mis-aligned elements on small screen*/
+.control-panel-items-sm.recording_outer_div, .control-panel-items-sm.wdt_outer_div {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border: none;
+  padding: 0px;
+  margin: 0 15px;
+  width: calc(100% - 30px);
+  margin-bottom: 8px;
+}
+
+.control-panel-items-sm .recording_inner_div, .control-panel-items .wdt_inner_div {
+  width: 100%;
+  flex-basis: 90%;
+  flex-grow: 0;
+  flex-shrink: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.control-panel-items-sm.progress_count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.control-panel-items-sm.progress_count > div:nth-child(1)
+{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  padding: 0;
+}
+
+.control-panel-items-sm.progress_count > div:nth-child(2)
+{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto;
+}
+
+.control-panel-items-sm.progress_percent > .progress {
+  top: 0;
+}
+
+.custom-control-label {
+  font-size: 0.8rem;
+  padding-top: 1px;
+}
+
+.control-panel-items-sm:nth-child(14) > div span {
+  font-size: 1.1rem;
+}
+
+.bootstrap-select .dropdown-toggle .filter-option-inner-inner {
+  width: calc(100% - 24px);
+  text-overflow: ellipsis;
+}
+
+@media (max-height: 650px) {
+  .control-panel-items-sm:nth-child(14) > div span {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .control-panel-items-sm.progress-pane-sm .progress {
+    top: calc(25%);
+  }
+}
+
+@media (max-width: 576px) {
+  .control-pane-lg {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .control-pane-sm {
+    display: block;
+  }
+}
+
+@media (min-width: 577px) {
+  .control-pane-sm {
+    display: none;
+  }
+}
+
+/*@media (max-height: 800px) {
+  .circle-progress-bar {
+    width: 100% !important;
+  }
+}
+
+@media (max-height: 800px) {
+  .progress-pane {
+    height: 22.5%;
+  }
+}*/
+
+@media (min-height: 800px) and (max-width: 900px), (height: 1366px) and (width: 1024px) {
+  .circle-progress-bar {
+    width: 100% !important;
+  }
+}
+
+@media (min-height: 800px) and (max-width: 900px), (height: 1366px) and (width: 1024px) {
+  .progress-pane {
+    height: 22.5%;
+  }
+}
+
+@media (max-height: 650px) {
+  .control-panel-items > div:nth-child(1) > label, .control-panel-items > div:nth-child(2) > input, .control-panel-items > div:nth-child(2) select {
+    font-size: .7rem;
+    padding-top: 2px;
+  }
+}
+
+@media (min-height: 651px) {
+  .control-panel-items > div:nth-child(1) > label, .control-panel-items > div:nth-child(2) > input, .control-panel-items > div:nth-child(2) select {
+    font-size: .8rem;
+  }
+}
+
+@media (max-height: 799px) {
+  .control-panel-label {
+    top: calc(50% - 10px);
+  }
+}
+
+@media (max-height: 750px) {
+  .control-panel-items-sm > div:not(.progress-text), .control-panel-items-sm > input, .control-panel-items-sm select {
+    font-size: 0.7rem !important;
+  }
+}
+
+@media (max-height: 650px) {
+  .control-panel-items-sm > div:not(.progress-text), .control-panel-items-sm > input, .control-panel-items-sm select {
+    font-size: 0.6rem !important;
+  }
+}
+
+/*FIX: Overlapping mis-aligned elements on small screen*/
+@media (max-height: 650px) {
+  .control-panel-items-sm.progress_count .progress-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-height: 750px) {
+  .control-panel-label.pane-sm {
+    top: calc(50% - 8px);
+  }
+}
+
+@media (max-height: 650px) {
+  .control-panel-label.pane-sm {
+    top: calc(50% - 6px);
+  }
+}
+
+@media (max-height: 650px) {
+  .custom-control-label.pane-sm {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-height: 650px) {
+  .custom-control-label.pane-sm {
+    padding-top: 5px;
+  }
+}
+

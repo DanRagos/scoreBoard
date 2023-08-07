@@ -1,0 +1,34 @@
+.qr-container, .qr-other {
+  float: right;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.qr-container > input[type=file] {
+	position: absolute;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+
+#schedQR-btn, #schedQR-btn-secured {
+	z-index: 1;
+}
+
+#schedQR-btn > input[type=file], #schedQR-btn-secured > input[type=file] {
+	position: absolute;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+	z-index: 2;
+}
+
+#switch-camera-btn {
+	position: absolute;
+	top: 60px;
+	right: 20px;
+	display: none;
+}

@@ -1,0 +1,100 @@
+/*#control-rec-label, #control-wdt-label {
+    color: black;
+}
+
+.dark-bg #control-rec-label, .dark-bg #control-wdt-label {
+    color: white;
+}*/
+
+#wdt-btn {
+    /* position: absolute;
+    top: 80%;
+    right: 15px; */
+    font-weight: 300;
+}
+
+/* Hanz: For v2.1 code modifications #10 (regarding control page drop down) */
+/* This was also needed for bug fixes for control page long job order names. */
+#control-tab div.dropdown-menu {
+    min-width: 100% !important;
+    width: 100% !important;
+    max-height: 270px !important;
+    border: 3px solid rgba(7, 56, 60, 0.87);
+    background-clip: border-box;
+}
+
+#control-tab div.dropdown-menu div.inner {
+    width: 100% !important;
+    overflow-x: auto;
+    max-height: 250px !important;
+}
+/***************************************************************************/
+
+
+/******** Hanz: For Bug #30 fix (overlapping text display on certain screen widths)*************/
+.control-pane-lg .ctrl_btn_container > div > div{
+    position: static;
+}
+
+.control-pane-lg .ctrl_btn_container {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: top;
+    width: 100%;
+}
+
+/* Hanz: Bug #30 fix improvement. Added improvement so that the selected element is roughly in 
+middle between the elements above/below it. */
+@media screen and (max-width: 808px) {
+    .control-pane-lg .ctrl_btn_container{
+        margin-top: 3px;
+    }
+}
+
+.control-pane-lg .ctrl_btn_container > div:nth-child(1) {
+    /* Div for button "Recording Ends at Target Quantity" */
+    display: flex;
+    justify-content: flex-start;
+    flex-basis: 60%;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.control-pane-lg .ctrl_btn_container > div:nth-child(1) > div {
+    margin-left: 5%;
+}
+
+.control-pane-lg .ctrl_btn_container > div:nth-child(2) {
+    /* Div for button "Watchdog Timer" */
+    display: flex;
+    justify-content: flex-end;
+    flex-basis: 40%;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.control-pane-lg .ctrl_btn_container > div:nth-child(2) > div{
+    margin-right: 5%;
+}
+/**************************************************************************************************/
+
+/* Hanz: Added for improvements. See excel sheet v2.1-code modifications #10
+Ex.
+MAC 1 has two job orders. Job1 has 5 characters and job2 has 45 characters.
+Before this improvement, selecting/hovering job1 (highlighted) does not highlight the entire
+horizontal width because job1 width is less than job2 width.*/
+#control-tab .dropdown-menu div.inner ul {
+    width: fit-content;
+}
+
+#control-tab .dropdown-menu div.inner ul li {
+    width: 100%;
+}
+
+#control-tab .dropdown-menu div.inner ul li a {
+    min-width: fit-content;
+    width: 100%;
+}       

@@ -1,0 +1,798 @@
+.tbl-container {
+  height: calc(100vh - 85px);
+  margin-top: 5px;
+  background-color: white;
+  /* min-height: 200px; */
+}
+
+.table-responsive {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Hanz: Code modification to make summary table behavior similar with
+schedule table (bug #27 fix). */
+/* 90% is given because 10% is allocated for "Show All Jobs" button.*/
+#summary-tab .table-responsive {
+  height: 90%;
+}
+
+table.dataTable {
+  margin-top: 0px !important;
+}
+
+.showButton-container {
+  height: 10%;
+}
+
+.sidepanel .dataTables_paginate {
+  font-size: 0.8rem;
+}
+
+.sidepanel .dataTables_info {
+  font-size: 0.9rem;
+}
+
+.sidepanel .table-update {
+  display: none;
+}
+
+.page-subheader-tbl {
+  /*height: 41px;*/
+  /*padding: 4px 0px 0px 0px;*/
+  box-sizing: border-box;
+  position: relative;
+}
+
+.page-subheader-tbl > div {
+  width: 100%;
+  height: calc(100% + 5px);
+  margin-top: -1px;
+  /* background-color: rgba(196, 204, 204, 0.5); */
+}
+
+.table-header-btn {
+  margin: 3px 0px 0px 5px;
+}
+
+.table-header-btn:first-child {
+  margin-right: 15px;
+}
+
+.header-btn-grp > button, .header-btn-grp > .input-group, .header-btn-grp > div {
+  float: right;
+}
+
+.header-btn-grp > select {
+  float: right;
+  margin: 3px 15px 0px 5px;
+}
+
+.date-container {
+  width: 138px;
+}
+
+.kulayng-araw {
+  color: #eaaf0f;
+}
+
+.kulayng-langit {
+  color: #007fff;
+}
+
+*[id$='_wrapper'] th {
+  text-align: center;
+  vertical-align: middle !important;
+}
+
+.table thead > tr th {
+  background-color: #444f51;
+  color: #fff;
+}
+
+.header-btn-grp {
+  padding-top: 2px;
+}
+
+.tbl-container {
+  overflow-y: auto;
+}
+
+.tbl-container.schedTable, .tbl-container.unprodTable {
+  width: 100%;
+  transition: width .5s ease;
+  float: right;
+}
+
+.tbl-container.schedTable.sidepanel, .tbl-container.unprodTable.sidepanel {
+  width: 65%;
+}
+
+.inner-sidepanel {
+  width: 35%;
+  transition: width .5s ease;
+  /*height: calc(100vh - 85px);*/
+  box-sizing: border-box;
+  /*position: absolute;*/
+  z-index: -1;
+
+  position: fixed;
+  overflow-y: auto;
+  height: calc(100% - 85px);
+}
+
+.inner-sidepanel .inner-content {
+  width: calc(100% - 15px);
+  height: calc(100% - 15px);
+  margin: 6px 10px 0px 0px;
+  box-sizing: border-box;
+  color: rgba(255,255,255,0.9);
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  position: relative;
+}
+
+.inner-header {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  background-color: #e4e4e4;
+  height: 54px; 
+}
+
+.inner-body {
+  position: relative;
+  top: 54px;
+  left: 0px;
+  overflow-y: auto;
+  width: 100%;
+  height: calc(100% - 114px); /*114px = inner-header + innear-footer*/
+  background-color: #e4e4e4;
+}
+
+.inner-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #e4e4e4;
+  height: 60px;
+}
+
+.form-control:disabled {
+    opacity: 0.65;
+}
+
+/* FIX: sidepanel input text box unaligned with its label when label becomes a two-liner*/
+#schedule-tab #schedule-content .inner-sidepanel.sidepanel .inner-body .row div:nth-child(1),
+#schedule-tab #schedule-content .inner-sidepanel.sidepanel .inner-body .row div:nth-child(2)
+{
+  display: flex;
+  align-items: center;
+}
+#schedule-tab #schedule-content .inner-sidepanel.sidepanel .inner-body .row div:nth-child(2) form {
+  width: 100%;
+}
+/*************************************************************************************************/
+
+.loginfo-header {
+  background-color: #444f51;
+}
+
+.inner-sidepanel .inner-body label {
+  color: black;
+}
+
+.sidepanel-close {
+  position: absolute;
+  right: 15px;
+  top: 7px;
+  height: 20px;
+  width: 20px;
+  padding: 0px;
+  line-height: 1;
+}
+
+.sidepanel-close i {
+  color: rgba(0,0,0,0.61);
+}
+
+.dataTable td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table td, .table th {
+  font-size: 14px;
+}
+
+.inputTableBtn {
+  min-width: 150px;
+  max-width: 300px;
+  margin: auto;
+}
+
+.offlineRow {
+  background-color: rgba(69,69,69,0.8) !important;
+}
+
+.transRow {
+  background-color: transparent !important;
+}
+
+.redRow {
+  background-color: #dc3545 !important;
+  color: rgba(255,255,255,0.9);
+}
+
+.blueRow {
+  background-color: #006adb !important;
+  color: rgba(255,255,255,0.9);
+}
+
+.lBlueRow {
+  background-color: #28a3ff !important;
+  color: black !important;
+}
+
+#detailDevice {
+  width: 110px;
+  max-width: 110px;
+}
+
+@media (max-width: 990px) {
+  /* #detail-export-btn > label, #graph-btn > label, #visual-export-btn > label {
+    display: none;
+  } */
+}
+
+@media (max-width: 875px) {
+  #export-btn > label, #chart-btn > label, #unprod-export-btn > label {
+    display: none;
+  }
+}
+
+@media (max-width: 863px) and (min-width: 760px) {
+  #detail-tab .view-btn > span, #detail-tab .today-btn > span, #visual-tab .view-btn > span, #visual-tab .today-btn > span  {
+    display: none;
+  }
+}
+
+@media (max-width: 545px) {
+  #chart-btn, #schedQR-btn{
+    position: absolute;
+    top: -34px;
+    right: 100px;
+  }
+}
+
+@media (max-width: 530px) {
+  #export-btn {
+    max-width: 75px !important;
+  }
+
+  #export-btn, #unprod-export-btn {
+    position: absolute;
+    top: -34px;
+    right: 100px;
+  }
+
+  #graph-btn {
+    position: absolute;
+    top: -34px;
+    right: 154px;
+  }
+
+  /* #detail-export-btn, #visual-export-btn {
+    position: absolute;
+    top: -34px;
+    right: 117px;
+  }   */
+
+  #chart-btn {
+    position: absolute;
+    top: -34px;
+    right: 137px;
+  }
+
+  #schedQR-btn{
+    position: absolute;
+    top: -34px;
+    right: 135px;
+  }
+}
+
+@media (max-width: 500px) {
+  #export-btn label, #unprod-export-btn label {
+    display: inline-block;
+  }
+
+  #chart-btn {
+    right: 179px;
+  }
+
+  #schedQR-btn {
+    right: 227px;
+  }
+}
+
+/* remove absolute positions for today and view buttons
+@media (max-width: 490px) {
+  .today-btn {
+    position: absolute;
+    left: 25px;
+    top: 0px;
+    height: 65px;
+    width: 65px;
+  }
+}
+
+@media (max-width: 490px) {
+  .view-btn {
+    position: absolute;
+    right: 30px;
+    top: 0px;
+    height: 65px;
+    width: 65px;
+    margin-right: 0px;
+  }
+}
+*/
+
+@media (max-width: 350px) {
+  .dataTables_paginate {
+    font-size: 0.55rem;
+  }
+
+  .dataTables_info {
+    font-size: 0.8rem;
+  }
+}
+
+/* @media (max-width: 768px) {
+  .tbl-container.schedTable.sidepanel, .tbl-container.unprodTable.sidepanel {
+    width: 55%;
+  }
+} */
+
+@media (max-width: 576px) {
+  /* .tbl-container.schedTable.sidepanel, .tbl-container.unprodTable.sidepanel {
+    width: 50%;
+  } */
+  /* #detail-show-data-btn {
+    position: absolute;
+    top: -32.6px;
+    right: 117px;
+  } */
+}
+
+@media (max-width: 768px) {
+  .inner-sidepanel.sidepanel {
+    width: 45%;
+    font-size: 0.85rem;
+  }
+
+  .tbl-container.schedTable.sidepanel, .tbl-container.unprodTable.sidepanel {
+    width: 55%;
+  }
+
+}
+
+/*change limit when button is still single line*/
+@media (max-width: 995px) {
+  .inner-footer button > label {
+    display: none;
+  }
+}
+/* Fix: footer buttons slighly hidden*/
+/* 36px is the added height to schedule-subheader-table when it becomes a two-liner. In effect, sidepanel moves down by 36px when this happens.*/
+/* 114px is the height of the sidepanel footer + header. */
+@media (max-width: 990px) {
+  #schedule-content .inner-sidepanel.sidepanel .inner-body
+  {
+    height: calc(100% - 36px - 114px);
+  }
+  #schedule-content .inner-sidepanel.sidepanel .inner-footer {
+    /* Move footer upwards by distance equal to how much the sidepanel is moved down due to schedule-subheader-table becoming a two-liner. */
+    bottom: 36px;
+  }
+}
+
+@media (max-width: 1125px) {
+  #detail-table-content .inner-sidepanel.sidepanel .inner-body
+  {
+    height: calc(100% - 36px - 114px);
+  }
+  #detail-table-content .inner-sidepanel.sidepanel .inner-footer {
+    /* Move footer upwards by distance equal to how much the sidepanel is moved down due to schedule-subheader-table becoming a two-liner. */
+    bottom: 36px;
+  }
+}
+
+@media (max-width: 760px) {
+  #detail-table-content .inner-sidepanel.sidepanel {
+    /*height: calc(100vh - 127px);*/
+    height: calc(100% - 85px);
+    font-size: 0.85rem;
+    width: 50%;
+  }
+
+  #schedule-content .inner-sidepanel.sidepanel {
+    height: calc(100% - 123px);
+    font-size: 0.85rem;
+    width: 50%;
+  }
+
+  .tbl-container.schedTable.sidepanel, .tbl-container.unprodTable.sidepanel {
+    width: 50%;
+  }
+
+  #schedule-content .inner-sidepanel.sidepanel .inner-body
+  {
+    height: calc(100% - 114px);
+  }
+
+  #schedule-content .inner-sidepanel.sidepanel .inner-footer {
+    /* Move footer upwards by distance equal to how much the sidepanel is moved down due to schedule-subheader-table becoming a two-liner. */
+    bottom: 0px;
+  }
+
+  .table-header-btn {
+    margin-top: 0px;
+  }
+
+  .page-subheader-tbl .row div:nth-child(2) {
+    position: relative;
+    height: 34px;
+  }
+
+  /* .page-subheader-tbl .row div > label, .page-subheader-tbl .row div > div {
+    background-color: rgba(196, 204, 204, 0.5);
+  } */
+
+  .header-btn-grp {
+    padding-bottom: 5px;
+    height: calc(100% + 4px);
+  }
+
+  .page-subheader-tbl > div {
+    background-color: transparent;
+  }
+
+  .tbl-container {
+    height: calc(100vh - 127px);
+  }
+
+  .page-subheader-tbl {
+    height: 78px;
+  }
+
+/* FIX: missing filter button on smaller screen
+  .filter-btn {		
+    position: absolute;
+    top: -34px;
+    right: 30px;
+    margin-right: 0px !important;
+    width: 65px;
+  } */
+
+  #detailDevice {
+    position: absolute;
+    top: -37px;
+    right: 30px;
+    margin-right: 0px !important;
+  }
+
+  /* .view-btn {
+    margin-right: 15px;
+  } */
+
+  
+}
+
+@media (max-width: 620px) {
+  #schedule-content .inner-sidepanel.sidepanel {
+    /* height: calc(100vh - 6.0625rem); */
+    height: calc(100% - 5.55rem);
+    /* width: 100%; */
+    /* height: calc(100%); */
+  }
+}
+
+@media (max-width: 900px) {
+  #detail-table-content .inner-sidepanel.sidepanel .inner-body
+  {
+    height: calc(100% - 114px);
+  }
+
+  #detail-table-content .inner-sidepanel.sidepanel .inner-footer {
+    /* Move footer upwards by distance equal to how much the sidepanel is moved down due to schedule-subheader-table becoming a two-liner. */
+    bottom: 0px;
+  }
+} 
+
+@media (max-width: 490px) {
+  .tbl-container {
+    height: calc(100vh - 159px);
+  }
+
+  .page-subheader-tbl {
+    height: 112px;
+  }
+
+  .page-subheader-tbl .row div:nth-child(2) {
+    position: relative;
+    height: 68px;
+  }
+
+  .date-realign-1 {
+    position: absolute;
+    right: 100px;
+    top: 0;
+    width: calc(100% - 200px);
+  }
+
+  .date-realign-2 {
+    position: absolute;
+    right: 100px;
+    top: 34px;
+    width: calc(100% - 200px);
+  }
+
+  .view-btn {
+    margin-right: 0px;
+  }
+
+  .dataTables_paginate {
+    font-size: 0.75rem;
+  }
+
+  .dataTables_info {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 490px) {
+  #detail-table-content .inner-sidepanel.sidepanel {
+    width: 100%;
+  }
+
+  #schedule-content .inner-sidepanel.sidepanel {
+    width: 100%;
+    height: calc(100% - 6.0rem);
+  }
+
+  /* .inner-sidepanel.sidepanel {
+    width: 100%;
+  } */
+
+  .inner-sidepanel .inner-content {
+    width: 100%;
+    height: calc(100% - 8px);
+  }
+
+  .inner-body {
+    /*height: calc(100vh - 225px);*/
+    height: calc(100% - 108px);
+  }
+
+  .tbl-container.schedTable.sidepanel, .tbl-container.unprodTable.sidepanel {
+    width: 0%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* FIX: missing filter button on smaller screen
+  .filter-btn {
+    position: absolute;
+    top: -34px;
+    right: 30px;
+    margin-right: 0px !important;
+    width: 65px;
+  } */
+
+  /*#graph-btn {
+    position: absolute;
+    top: -34px;
+    right: 182px;
+  }*/
+
+  /*#detail-export-btn {
+    position: absolute;
+    top: -34px;
+    right: 145px;
+  }  */
+
+}
+
+
+/* @media (max-width: 768px) {
+  .inner-sidepanel.sidepanel {
+    width: 45%;
+    font-size: 0.85rem;
+  }
+} */
+
+@media (max-width: 576px) {
+  /* .inner-sidepanel.sidepanel {
+    width: 50%;
+  } */
+
+  #rejectTblDiv {
+    position: relative;
+    top: 5.5rem;
+  }
+}
+
+
+@media (max-height: 500px) {
+  .table-responsive {
+    height: 350px;
+    overflow-y: auto;
+  }
+
+  .showButton-container {
+    height: 45px;
+  }
+
+}
+
+#rejectTblDiv {
+  position: block;
+}
+
+@media only screen and (max-width: 575px) {
+  .tbl-container.unprodTable {
+    /* position: relative;
+    top: 5.5rem; */
+  }
+
+
+}
+
+/* Hanz: Removed for http-1201 bug #22 fix*/
+/* .unprodTable > .table-responsive.text-center {
+  height: 90% !important;
+} */
+/* Hanz: Added for http-1201 bug #22 fix*/
+#detail-table-content .table-responsive {
+  height: 100%;
+}
+/**************************************/
+
+
+#unproductiveTbl_wrapper {
+  /* height: 80%; */
+}
+
+#unproductiveTbl_wrapper > .dataTables_scroll > .dataTables_scrollBody {
+  /* height: 26rem; */
+  /* height: 100%; */
+}
+
+.dataTables_scroll {
+  /* height: 100%; */
+}
+
+table.dataTable thead th, table.dataTable tfoot th, th {
+  font-weight: normal !important;
+}
+
+#schedule-content .inner-sidepanel.sidepanel .inner-content {
+  min-height: 300px;
+}
+
+body:not(.mobile) ::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body:not(.mobile) ::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+  background-color: rgba(133,144,160,0.1);
+}
+
+body:not(.mobile) ::-webkit-scrollbar-thumb {
+  background-color: rgba(133,144,160,0.5);
+  border-radius: 0.25rem;
+}
+
+body:not(.mobile) ::-webkit-scrollbar-corner {
+  background-color: rgba(133,144,160);
+  border: 0.5px solid black;
+}
+
+/* make date inputs not look disabled - light */
+.hasDatepicker:not(disabled) {
+  background-color: white !important;
+  border: 1px solid !important;
+  border-color:  rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hanz: Fox for bug #40. This is the possible fix #1 wherein datetimepicker font size
+is simply adjusted. Its the easier fix but less user-friendly if viewport height is
+low due to font size being forced to very low value. */
+/************************************************************************************/
+/* #ui-datepicker-div {
+  font-size: 16px;
+}
+@media screen and (max-height: 540px) {
+  #ui-datepicker-div {
+    font-size: 12px;
+  }
+}
+@media screen and (max-height: 430px) {
+  #ui-datepicker-div {
+    font-size: 11px;
+  }
+}
+@media screen and (max-height: 400px) {
+  #ui-datepicker-div {
+    font-size: 8px;
+  }
+}
+@media screen and (max-height: 280px) {
+  #ui-datepicker-div {
+    font-size: 5.5px;
+  }
+} */
+/************************************************************************************/
+
+/************************************************************************************/
+/* Hanz: Order of rules is important. Fix for bug #40. This is the possible fix #2
+wherein datetimepicker may be laid out in horizontal if view is landscape mode.*/
+#ui-datepicker-div {
+  font-size: 16px;
+}
+
+@media screen and (max-height: 555px) {
+  #ui-datepicker-div {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-height: 430px) {
+  #ui-datepicker-div {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  #ui-datepicker-div {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-height: 430px) and (min-width: 555px) {
+  #ui-datepicker-div {
+    height: 230px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-height: 250px) and (min-width: 555px) {
+  #ui-datepicker-div {
+    height: 190px;
+    font-size: 10px;
+  }
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.clearfix {
+    display: inline-block;
+}
+html[xmlns] .clearfix {
+    display: block;
+}
+* html .clearfix {
+    height: 1%;
+}
+/************************************************************************************/
