@@ -1,0 +1,116 @@
+.table-btn-addon label {
+  color: rgba(0,0,0,0.9);
+}
+
+.last-update.table-update {
+  position: initial;
+  font-size: 0.9rem;
+  margin: 0px;
+}
+
+.table-btn-addon.supress button {
+  display: none;
+}
+
+.inputTableBtn .form-control:disabled, .inputTableBtn .form-control[readonly], .inner-sidepanel .form-control:disabled, .inner-sidepanel .form-control[readonly] {
+  background-color: rgba(230,230,230,0.65);
+}
+
+.dtr-details {
+  width: 100%;
+}
+
+table.dataTable > tbody > tr.child ul.dtr-details > li {
+  border-bottom: 1px solid transparent !important;
+}
+
+.ui-datepicker {
+  z-index: 1000 !important;
+}
+
+#filterModal .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+  width: calc(100% - 15px);
+}
+
+#control-container form, #control-container .control-pane-lg .filter-option-inner {
+  height: 100%;
+}
+
+#control-container .control-pane-sm .form-control-sm {
+  height: calc(2em + .5rem + 2px);
+  line-height: 2em;
+}
+
+#control-container .control-pane-lg .filter-option-inner-inner {
+  position: absolute;
+  top: calc(50% - 0.9rem);
+}
+
+#control-container .control-pane-lg .form-control-sm, #control-container .control-pane-lg .form-control-sm > button {
+  line-height: unset;
+  height: 100%;
+}
+
+#dashboard-tab .last-update, #overview-tab .last-update, #duration-tab .last-update {
+  width: 195px;
+}
+
+.popover .popover-header {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.popover .popover-body p {
+  text-align: left;
+}
+
+.bs-popover-auto[x-placement^="left"] > .arrow::after, .bs-popover-left > .arrow::after {
+  border-left-color: var(--dark) !important;
+}
+
+.filter-btn.icon-active i {
+  color: #28a745 !important;
+}
+
+@media screen and (max-height: 950px) {
+  #control-container .control-pane-lg .filter-option-inner-inner {
+    top: calc(50% - 0.8rem);
+  }
+}
+
+@media screen and (max-height: 900px) {
+  #control-container .control-pane-sm .form-control-sm {
+    height: calc(1.75em + .5rem + 2px);
+    line-height: 1.75em;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  #control-container .control-pane-sm .form-control-sm {
+    height: calc(1.5em + .5rem + 2px);
+    line-height: 1.5em;
+  }
+}
+
+@media screen and (max-height: 720px) {
+  #control-container .control-pane-sm .form-control-sm {
+    height: calc(1.25em + .5rem + 2px);
+    line-height: 1.25em;
+  }
+}
+
+@media screen and (max-height: 680px) {
+  #control-container .control-pane-sm .form-control-sm {
+    height: calc(1.05em + .5rem + 2px);
+    line-height: 1.05em;
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-height: 650px) {
+  #control-container .control-pane-lg .filter-option-inner-inner {
+    font-size: 0.8rem;
+    top: calc(50% - 0.6rem);
+  }
+}
+

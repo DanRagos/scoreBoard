@@ -1,0 +1,217 @@
+.dark-bg {
+  background-color: black;
+}
+
+.dark-bg .page-subheader, .dark-bg .page-subheader-tbl .row div > label, .dark-bg .page-subheader-tbl .row div > div, .dark-bg .page-subheader-tbl > div, .dark-bg .page-subheader .headerspan, .dark-bg #visual-addl-btn {
+  background-color: #30383a !important;
+  color: rgba(255,255,255,0.9);
+}
+
+.dark-bg .update-content, .dark-bg .dashboard-pane-subframe, .dark-bg .progress-text, .dark-bg .table-btn-addon label {
+  color: rgba(255, 255,255,0.9);
+}
+
+.dark-bg .tbl-container {
+  background-color: black;
+}
+
+.dark-bg .nav-tabs .nav-item .nav-link {
+  background-color: transparent;
+}
+
+.dark-bg .nav-tabs .nav-item .nav-link.active {
+  color: rgba(255,255,255,0.9);
+  border-color: #dee2e6 #dee2e6 #30383a;
+}
+
+.dark-bg .config-main-pane, .dark-bg .config-sub-pane, .dark-bg .config-tab-header label, .dark-bg hr, .dark-bg .cardio, .dark-bg .dashboard-pane-frame {
+  border-color: rgba(102,109,112,0.9);
+  color: rgba(255,255,255,0.9);
+}
+
+.dark-bg .dashboard-pane-frame {
+  background-color: rgba(181,209,232,0.3);
+}
+
+.dark-bg .form-control-plaintext, .dark-bg .dataTables_paginate, .dark-bg .dataTables_info, .dark-bg .editCluster-btn, .dark-bg .last-update, .dark-bg .dash-paging, .dark-bg .circle-progress-bar label, .dark-bg .recBtn-state label, .dark-bg .systemContent > .footer > div > span {
+  color: rgba(255,255,255,0.8);
+}
+
+.dark-bg .config-sub-pane {
+  background-color: #444f51;
+  color: white !important;
+}
+
+.dark-bg .cardio-header {
+  /*background-color: rgba(181,209,232,0.2);*/
+  background-color: rgba(21,101,192,0.6);
+}
+
+.dark-bg table thead > tr th {
+  border-color: black !important;
+}
+
+.dark-bg table.table tbody tr {
+  background-color: black;
+  color: rgba(255,255,255,0.9);
+}
+
+.dark-bg #usrMngmt tbody tr {
+  background-color: transparent;
+}
+
+.dark-bg .page-subheader-tbl .btn-dark, .dark-bg .page-subheader-tbl .input-group-text {
+  background-color: #444f51 !important;
+  border-color: rgba(255,255,255,0.3) !important;
+}
+
+.dark-bg .table-header-btn .border-dark {
+  border-color: rgba(255,255,255,0.3) !important;
+  color: rgba(255,255,255,0.9) !important;
+}
+
+.dark-bg .page-subheader-tbl .btn-dark.active {
+  background-color: rgba(0,0,0,0.3) !important;
+}
+
+.dark-bg .dash-paging button i {
+  color: white !important;
+}
+
+.dark-bg .control-panel-items > div:nth-child(1), .dark-bg .control-panel-items-sm > div:nth-child(1), .dark-bg .history-wrapper button, .dark-bg .manual-update button {
+  color: rgba(255,255,255,0.8);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.dark-bg .control-panel-header, .dark-bg .overview-pane > div:nth-child(1) {
+  background-color: rgba(0,0,0,0.4);
+}
+
+.dark-bg .sortable li {
+  color: white;
+}
+
+.dark-bg .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  color: black;
+}
+
+.dark-bg .dataTables_wrapper .dataTables_paginate .paginate_button:not(.current), .dark-bg div.dataTables_wrapper div.dataTables_filter label {
+  color: rgba(255,255,255,0.8) !important;
+}
+
+.dark-bg .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+  color: #666 !important;
+}
+
+.dark-bg .draggable-wrapper-x ul {
+  background-color: transparent;
+}
+
+body.dark-bg:not(.mobile) ::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+body.dark-bg:not(.mobile) ::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+  background-color: transparent !important;
+}
+
+body.dark-bg:not(.mobile) ::-webkit-scrollbar-thumb {
+  background-color: rgb(48, 56, 58) !important;
+  border-radius: 0.25rem;
+}
+
+body.dark-bg:not(.mobile) ::-webkit-scrollbar-corner {
+  background-color: #1e2125 !important;
+  border: 0.5px solid black;
+}
+
+.dark-bg .gradientbackground {
+  background-image: linear-gradient(to bottom, rgba(100,100,100,0.8) 10%, black);
+}
+
+/*   temporary theme for datepicker - not of importance as of now   */
+
+.ui-widget-header, .ui-datepicker .ui-datepicker-buttonpane button {
+  border: none;
+  background: #30383a;
+  color: rgba(255,255,255,0.9);
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+  background-color: #bfbfbf;
+}
+
+.dark-bg .dashboard-pane-subframe div:nth-child(1) span, .dark-bg .last-update, .dark-bg .dash-paging, .dark-bg .page-subheader > div > span, .dark-bg .control-panel-items > div:nth-child(1), .dark-bg .control-panel-items-sm > div:nth-child(1), .dark-bg .cardio-details p, .dark-bg .config-sub-pane .config-tab-body p {
+  font-weight: 300;
+}
+
+.dark-bg .inner-body, .dark-bg .inner-header, .dark-bg .inner-footer {
+  background-color: rgb(68,79,81);
+}
+
+.dark-bg .itemNum {
+  background-color: white;
+  color: #495057 !important;
+}
+
+.dark-bg .loginfo-header {
+  background-color: rgba(27,27,27,0.49);
+}
+
+.dark-bg .inner-sidepanel .inner-content label, .dark-bg .causeReg span, .dark-bg .usrMngmt-userInput, .dark-bg .usrMngmt-passInput {
+  color: rgba(255,255,255,0.9);
+}
+
+.dark-bg .overview-body-lbl.defaultClr {
+  color: white !important;
+}
+
+.dark-bg .systemContent > .body {
+  padding: 8px;
+  border: none;
+  background-color: rgba(68,79,81,0.5);
+}
+
+.dark-bg .systemContent > .footer {
+  background-color: rgba(68,79,81,0.5);
+}
+
+.dark-bg #causeReg-1 div:not(:first-child) .causeReg-span, .dark-bg #causeReg-2 div:not(:first-child) .causeReg-span {
+  background-color: rgba(255,255,255,0.8);
+}
+
+@media (max-width: 450px) {
+  .dark-bg #sideBtnContainer.active {
+    background-color: #30383a;
+  }
+}
+
+#loadingMessage {
+  color: black;
+}
+
+.dark-bg #loadingMessage {
+  color: rgba(255,255,255,0.9);
+}
+
+.dark-bg .custom-control-input:disabled~.custom-control-label {
+  color: rgba(255,255,255,0.45);
+}
+/* make date inputs not look disabled - dark */
+.dark-bg .dateTo, .dark-bg .dateFr {
+  color: rgba(255,255,255,0.9) !important;
+  background-color: transparent !important;
+  border-color: rgba(255,255,255,0.3) !important;
+}
+
+.dark-bg #productivity-interval > input {
+  color: rgba(255,255,255,0.9) !important;
+  background-color: transparent !important;
+  border-color: rgba(255,255,255,0.3) !important;
+}
+
+.dark-bg #dbm-from > input, .dark-bg #dbm-from > input {
+  border-color: rgba(118,118,118,0.3) !important;
+}

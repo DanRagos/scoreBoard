@@ -1,0 +1,46 @@
+#promptModal .modal-body h5, #warningModal .modal-body h5 {
+  font-weight: 400;
+}
+
+@media (min-width: 440px) {
+  .clr-btn {
+    position: absolute;
+    left: 15px;
+  }
+}
+
+#schedule-modal-header {
+  background-color: #444f51;
+}
+
+.dark-bg #schedule-modal-header {
+  background-color: rgba(27,27,27,0.49);
+}
+
+/**Added for filtermodal scroll problem**/
+#filterModal div.dropdown-menu {
+  max-height: 200px !important;
+  min-width: 100% !important;
+  width: 100%;
+  border: 3px solid rgba(7, 56, 60, 0.87);
+  background-clip: border-box;
+}
+
+#filterModal .dropdown-menu div.inner {
+  max-height: 180px !important;
+  width: 100%;
+}
+
+#filterModal .dropdown-menu div.inner ul.dropdown-menu.inner {
+  width: fit-content;
+}
+
+#filterModal .dropdown ul.dropdown-menu span.check-mark {
+  position: absolute;
+  left: 0.75rem;
+}
+
+#filterModal .dropdown ul.dropdown-menu a[role=option] {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}

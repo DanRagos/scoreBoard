@@ -1,0 +1,67 @@
+#timechart {
+	display: none;
+	/* height: 100%; */
+	height: calc(100% - 25px);
+	width: 100%;
+}
+
+#timechart-content {
+	width: 100%;
+	height: inherit;
+}
+
+.hoverSVG:hover {
+  	/*transform: scale(1.2);*/
+  	/*transform: scaleY(1.2);*/
+  	-webkit-transform: translate(0,10px);
+    -moz-transform: translate(0,10px);
+    -o-transform: translate(0,10px);
+    transform: translate(0,10px);
+}
+.hoverSVG {
+	display: inline-block;
+	transition: ease-in-out 0.2s;
+	/*transform-origin: 50% 50%;*/
+}
+
+.manualUpdate-footer {
+	display: none;
+}
+
+.pagination-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 2rem;
+	border: none;
+	background-color: #444f51;
+	color: white;
+	border-radius: 0.2rem;
+	margin-left: 0.1rem;
+	margin-right: 0.1rem;
+}
+
+/* .dark.bg .pagination-item {
+	color: black;
+} */
+
+.pagination-item.active-item {
+	background-color: gray;    
+	/* color: inherit; */
+}
+
+.pagination-item:focus {
+    outline: none;
+}
+
+#timechart-nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#timechart-pagination-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

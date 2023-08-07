@@ -1,0 +1,230 @@
+#reject-tab {
+    display: flex;
+    flex-direction: column;
+    /* height: inherit; */
+    height: 100%;
+}
+
+#reject-content {
+    margin-top: 0;
+    flex-grow: 1;
+}
+
+#reject-today-btn {
+    grid-area: today; 
+    position: static;
+    width: auto;
+    height: auto;   
+}
+
+#reject-fr {
+    grid-area: from;
+}
+
+#reject-to {
+    grid-area: to;
+}
+
+#reject-fr,
+#reject-to {
+    display: inline-flex;
+    width: 8.8rem;
+}
+
+#reject-fr > input, 
+#reject-to > input {
+    /*height: 33px;*/
+    /*border: 1px solid #fff;*/
+    /*border-color: rgba(0, 0, 0, 0.3) !important;*/
+    /*background-color: transparent;*/
+    /*color: black !important;*/
+}
+
+/*.dark-bg #reject-fr > input,
+.dark-bg #reject-to > input {
+    border-color: rgba(255,255,255,0.3) !important;
+    color: #fff !important;
+}*/
+
+#reject-view-btn {
+    grid-area: view;
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+#reject-filter-btn {
+    grid-area: filter;
+}
+
+#reject-subheader button {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#reject-subheader {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 5.5rem 8.8rem 8.8rem 5.5rem 5.5rem;
+    grid-template-areas: 'title today from to view filter';
+    grid-gap: 0.2rem;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: rgba(196, 204, 204, 0.5) !important;
+    color: black;
+}
+
+.dark-bg #reject-subheader {
+    background-color: #30383a !important;
+    color: white;
+}
+
+#toggle-reject {
+    display: none;
+    grid-area: option;
+    max-width: 8rem;
+    justify-self: end;
+    max-height: 1.9375rem;
+    align-self: end;
+}
+
+#reject-content {
+    height: 100%;
+}
+
+#reject-content .table-responsive {
+    /* height: 83% !important; */
+    height: 90%;
+}
+
+@media only screen and (max-width: 690px) {
+    #reject-subheader {
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'title option';
+        transition: ease-in-out .2s;
+        height: 2.9375rem;
+    }
+
+    #reject-today-btn,
+    #reject-view-btn,
+    #reject-fr,
+    #reject-to,
+    #reject-filter-btn {
+        display: none;
+    }
+
+    .active#reject-subheader {
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 4.8rem 1fr 4.8rem;
+        grid-template-areas:
+            'title . filter'
+            'today from view'
+            'today to view'
+            '.     .  option';
+        height: 9.8475rem;
+        padding: 0.5rem 0.5rem;
+    }
+
+    .active > #reject-today-btn,
+    .active > #reject-view-btn, 
+    .active > #reject-filter-btn {
+        display: inline-block;
+    }
+
+    .active > #reject-today-btn,
+    .active > #reject-view-btn {
+        align-self: stretch;
+    }
+
+    .active > #reject-fr,
+    .active > #reject-to {
+        display: inline-flex;
+        width: auto;
+    }
+
+    #reject-today-btn span {
+        display: none;
+    }
+
+    #toggle-reject {
+        display: unset;
+    }
+
+    #reject-content {
+        overflow-y: scroll;
+        /* height: calc(100vh - 94px); */
+        height: 100%;
+        min-height: calc(100% - 9.8475rem); /* 9.8475rem is the height of #reject-subheader when expanded */
+    }
+
+    #reject-content .table-responsive {
+        /* height: calc(100vh - 9.90625rem); */
+        height: 90%;
+    }
+}
+
+/* Add for fix on hidden bottom buttons */
+/********************************************************************/
+#reject-content div.table-responsive {
+    /* 31px is the set min-height of "Show all jobs" button */
+    max-height: calc(100% - 31px);
+}
+
+#reject-content div.showButton-container {
+    min-height: 31px;
+}
+/********************************************************************/
+
+/***************************http-1201 bug #21 fix - Improved 12-15-22***************************/
+#rejectTbl_paginate
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#rejectTbl_paginate a.paginate_button.previous, #rejectTbl_paginate a.paginate_button.next
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#rejectTbl_paginate>span
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#reject-tab .dataTables_info, #reject-tab .dataTables_paginate 
+{
+    float: none;
+}
+
+#rejectTbl_footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+@media screen and (max-width: 425px) {
+    #rejectTbl_footer {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+}
+
+#rejectTbl_info {
+    /* Same as datatables css padding-top */
+    padding-bottom: 0.85em;
+    white-space: pre-line;
+    word-break: normal;
+}
+/***********************************************************************************************/

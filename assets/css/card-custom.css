@@ -1,0 +1,150 @@
+.cardio {
+  height: 200px;
+  width: calc((100% - 40px) / 5);
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #c4cccc;
+  border-radius: 0.3rem;
+  float: left;
+  box-sizing: border-box;
+}
+
+.cardio:nth-child(5n) {
+  margin-right: 0px;
+}
+
+.cardio-header {
+  height: 70%;
+  /*background-color: rgba(181,209,232,0.5);*/
+  background-color: rgba(144,202,249,1);
+  border-top-right-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+  margin: 0px -1px 0px -1px;
+}
+
+.cardio-body {
+  height: 30%;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  position: relative;
+}
+
+.cardio-body button {
+  position: absolute;
+  top: calc(50% - 15.5px);
+  /*left: 15px;*/
+}
+
+.cardio-title {
+  width: 100%;
+  height: 30%;
+  text-align: left;
+  padding: 0px 15px;
+  font-size: 0.8rem;
+}
+
+.cardio-title label {
+  opacity: 0.9;
+  max-width: 135px;
+}
+
+.cardio-title button {
+  margin-top: 5px;
+  border: none !important;
+  box-shadow: none !important;
+  color: rgba(0,0,0,0.8);
+  text-shadow: 2px 2px rgba(128,128,128,0.33);
+  background-color: transparent !important;
+}
+
+.cardio-title button:hover {
+  color: rgba(0,123,255,0.9);
+}
+
+.cardio-title button:active {
+  text-shadow: none;
+}
+
+.cardio-details {
+  width: 100%;
+  height: 70%;
+  text-align: left;
+  padding: 0px 15px;
+}
+
+.cardio-details p {
+  width: 100%;
+  margin: 0px;
+  font-size: 0.80rem;
+  /*opacity: 0.85;*/
+  font-weight: 300;
+}
+
+.cardio-details label:first-child {
+  width: 100%;
+  margin: 0px;
+  font-size: 1rem;
+  opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  .cardio {
+    width: calc((100% - 30px) / 4);
+  }
+}
+
+@media (max-width: 1200px) {
+  .cardio:nth-child(5n) {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cardio:nth-child(4n) {
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cardio {
+    width: calc((100% - 20px) / 3);
+  }
+}
+
+@media (max-width: 1024px) {
+  .cardio:nth-child(4n) {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cardio:nth-child(3n) {
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cardio {
+    width: calc((100% - 10px) / 2);
+  }
+}
+
+@media (max-width: 576px) {
+  .cardio:nth-child(3n) {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cardio:nth-child(2n) {
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 400px) {
+  .cardio {
+    width: 100%;
+    margin-right: 0px;
+  }
+}
+
