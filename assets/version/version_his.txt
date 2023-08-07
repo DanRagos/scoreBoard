@@ -1,7 +1,0 @@
-http-VERSION:
-
-0221-1  - add invalid date range prompt on click of Active and Removed Devices button
-        - DB: (v2.0.230221-1) modify functions: delete_db_data, delete_db_data_all (delete archived device if all records are deleted, improved handling of no data)
-0213-2  - fix doubled phrase ("Would you like to Continue") on enabling base station scan
-0213-1  - correction on Jap trans for "Remove Cluster" tooltip
-0207-1  - updated TLS translations; correction on scanning prompts from LSJ
