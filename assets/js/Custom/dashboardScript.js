@@ -1,9 +1,9 @@
 var dashboardGroup = [];
 
 function initDashboard() {
-	dashboardDevices();
+	dashboardBoards();
 	clearDashboard();
-	addBacklogIcon();
+	// addBacklogIcon();
 }
 
 function getDashboardGroup() {
@@ -20,22 +20,24 @@ function getDashboardGroup() {
 	});
 }
 
-function dashboardDevices() {
+function dashboardBoards() {
+	console.log('dashboardBoards()');
 	flags.dashboard.prevGroup = '';
 
 	flags.ajaxRequestStatus = $.ajax({
 		type: 'POST',
-		url: 'php/jogetdevices.php',
+		url: 'php/jogetboards.php',
 		data: '',
 		dataType:'json',
 		async: true,
 		success: function(data) {
+			console.log(data);
 			/** Check if data is empty **/
 			if(!(data === null)) {
 				var prevData = 0;
 				for(var x = 0; x < data.length; x++) {
-					if(parseInt(data[x].devord) > prevData) {
-						prevData = parseInt(data[x].devord);
+					if(parseInt(data[x].brdord) > prevData) {
+						prevData = parseInt(data[x].brdord);
 					}
 				}
 
@@ -85,22 +87,21 @@ function pageMoveTo(direction) {
 	return currIndex;
 }
 
-function addBacklogIcon() {
-	for(var i = 1; i <= 10; i++) {
-		var dashboardElem = '#' + flags.currPage + ' .dashboard-pane:nth-child(' + (i + 2) + ') > .dashboard-pane-frame > ';
-		$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(1)').find('.backlogIcon').remove();
-		$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(1)').find('span').after('<span class="backlogIcon" style="display: none;">&nbsp;<i class="fa fa-exclamation-circle text-secondary"></i></span>');
-	}
-}
+// function addBacklogIcon() {
+// 	for(var i = 1; i <= 10; i++) {
+// 		var dashboardElem = '#' + flags.currPage + ' .dashboard-pane:nth-child(' + (i + 2) + ') > .dashboard-pane-frame > ';
+// 		$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(1)').find('.backlogIcon').remove();
+// 		$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(1)').find('span').after('<span class="backlogIcon" style="display: none;">&nbsp;<i class="fa fa-exclamation-circle text-secondary"></i></span>');
+// 	}
+// }
 
 function dashboardUpdate() {
+	console.log('dashboardUpdate()');
 	var colorGrp = {}, defaultPwnClr = '';
 	if(flags.pref.theme == 'dark') {
 		colorGrp = flags.dashboard.colorGroup.dark;
-		defaultPwnClr = 'rgba(255,255,255,0.9)';
 	} else {
 		colorGrp = flags.dashboard.colorGroup.light;
-		defaultPwnClr = 'black';
 	}
 
 	flags.ajaxRequestStatus = $.ajax({
@@ -110,6 +111,8 @@ function dashboardUpdate() {
 		dataType:'json',
 		async: true,
 		success: function(data) {
+			console.log('UPDATE DASHBOARD DATA!');
+			console.log(data);
 			/** Check if data is empty **/
 			if(!(data === null)) {
 				var offset = (flags.dashboard.currPage - 1) * flags.dashboard.maxDevicePerPage;
@@ -120,10 +123,10 @@ function dashboardUpdate() {
 				flags.dashboard.currGroup = '';
 				for(var i = 0; i < data.length; i++) {
 					/** access only the devices inside the range **/
-					if(min > parseInt(data[i].devdid) || parseInt(data[i].devdid) > max) {
+					if(min > parseInt(data[i].brdord) || parseInt(data[i].brdord) > max) {
 						continue;
 					}
-					flags.dashboard.currGroup += (data[i].devdid).toString();
+					flags.dashboard.currGroup += (data[i].brdord).toString();
 				}
 				/** Clear dashboard **/
 				if(flags.dashboard.currGroup != flags.dashboard.prevGroup && flags.dashboard.prevGroup != '') {
@@ -133,25 +136,25 @@ function dashboardUpdate() {
 
 				for(var i = 0; i < data.length; i++) {
 					/** access only the devices inside the range **/
-					if(min > parseInt(data[i].devdid) || parseInt(data[i].devdid) > max) {
+					if(min > parseInt(data[i].brdord) || parseInt(data[i].brdord) > max) {
 						continue;
 					}
 
-					var dashboardElem = '#' + flags.currPage + ' .dashboard-pane:nth-child(' + (parseInt(data[i].devdid) - offset + 2) + ') > .dashboard-pane-frame > ';
+					var dashboardElem = '#' + flags.currPage + ' .dashboard-pane:nth-child(' + (parseInt(data[i].brdord) - offset + 2) + ') > .dashboard-pane-frame > ';
 
-					var tgt = parseFloat(data[i].devtgt);
+					var tgt = parseFloat(data[i].brdtgt);
 					if(isNaN(tgt)) {
 						tgt = '--';
 					}
 
-					var pwn = parseFloat(data[i].devpwn);
-					if(isNaN(pwn)) {
-						pwn = 0;
-					}
-
-					var cnt = parseFloat(data[i].devcnt);
+					var cnt = parseFloat(data[i].brdcnt);
 					if(isNaN(cnt)) {
 						cnt = 0;
+					}
+
+					var diff = tgt - cnt;
+					if(isNaN(diff)) {
+						diff = '--';
 					}
 
 					var pVal = (cnt / (tgt == '--' ? 0 : tgt)) * 100;
@@ -163,61 +166,80 @@ function dashboardUpdate() {
 						pVal = pVal.toFixed(1) + '%';
 					}
 
-					/** Machine ID **/
-					$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(2)').find('span').html(data[i].devnme);
-					/** Prewarn **/
-					$(dashboardElem + '.dashboard-pane-subframe:nth-child(3) > div:nth-child(2)').find('span').html(pwn);
-					/** Progress **/
-					$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(2)').find('span').html(cnt  + ' / ' + tgt);
+					/** LINE ID **/
+					$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(2)').find('span').html(data[i].brdname);
+					/** TARGET **/
+					$(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').find('span').html(tgt);
+					/** COUNT **/
+					$(dashboardElem + '.dashboard-pane-subframe:nth-child(3) > div:nth-child(2)').find('span').html(cnt);
+					/** DIFF **/
+					$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(2)').find('span').html(diff);
+					// 
+					if($(document.body).hasClass('dark-bg')){
+						$(dashboardElem).css('color', 'rgba(255, 255,255,0.9) !important');
+						$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress-bar-title').css('color', 'rgba(255, 255,255,0.9) !important');
+						$(dashboardElem + '.dashboard-pane-subframe').css('backgroundColor', 'initial');
+						$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress').css('backgroundColor', 'rgba(49,55,58,0.4)');
+					}else{
+						$(dashboardElem).css('color', '#212529 !important');
+						$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress-bar-title').css('color', '#212529 !important');
+						$(dashboardElem + '.dashboard-pane-subframe').css('backgroundColor', 'initial');
+					}
+					$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress').css('border', 'none');
+					
+
+					
+					// No running JO
+					if(data[i].jiid == '') {
+						$(dashboardElem + '.dashboard-pane-subframe:nth-child(1)').css('backgroundColor', grey);
+					}
 					/** Offline State **/
-					if(data[i].devsta == '0') {
-						$(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').find('span').html(lang[flags.pref.lang].status['OFFLINE']);
-						$(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').css('color', 'inherit');
+					if(data[i].lnsta == '0') {
+						// $(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').find('span').html(lang[flags.pref.lang].status['OFFLINE']);
+						$(dashboardElem + '.dashboard-pane-subframe').css('color', 'inherit');
 						/** Backlog Icon **/
-						$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(1)').find('.backlogIcon').hide();
+						// $(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(1)').find('.backlogIcon').hide();
 					} else {
-						/** Status **/
-						$(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').find('span').html(lang[flags.pref.lang].status[data[i].devmst]);
 						/** Status Color **/
-						switch(data[i].devmst) {
+						switch(data[i].lnsta) {
 							case 'PRODUCTIVE':
-								$(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').css('color', colorGrp[data[i].devmst]);
+								$(dashboardElem + '.dashboard-pane-subframe:nth-child(1)').css('backgroundColor', colorGrp[data[i].lnsta]);
 								break;
 								
 							case 'UNPRODUCTIVE':
-								$(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').css('color', colorGrp[data[i].devmst]);
+								$(dashboardElem + '.dashboard-pane-subframe:nth-child(1)').css('backgroundColor', colorGrp[data[i].lnsta]);
 								break;
 								
 							case 'COMPLETED':
-								$(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').css('color', colorGrp[data[i].devmst]);
+								$(dashboardElem + '.dashboard-pane-subframe:nth-child(1)').css('backgroundColor', colorGrp[data[i].lnsta]);
 								break;
 								
-							case 'COMPLETED*':
-								$(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').css('color', colorGrp[data[i].devmst]);
-								break;
+							// case 'COMPLETED*':
+							// 	$(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').css('color', colorGrp[data[i].devmst]);
+							// 	break;
 
 							default:
-								$(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').css('color', 'inherit');
+								$(dashboardElem + '.dashboard-pane-subframe:nth-child(1)').css('backgroundColor', 'inherit');
 								break;
 						}
-						/** Backlog Icon **/
-						if(data[i].devbck == '1') {
-							$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(1)').find('.backlogIcon').show();
-						} else {
-							$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(1)').find('.backlogIcon').hide();
-						}
-					}
+					// 	/** Backlog Icon **/
+					// 	if(data[i].devbck == '1') {
+					// 		$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(1)').find('.backlogIcon').show();
+					// 	} else {
+					// 		$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(1)').find('.backlogIcon').hide();
+					// 	}
+					// }
 					/** Prewarn Color **/
-					if(cnt >= pwn && pwn != 0) {
-						$(dashboardElem + '.dashboard-pane-subframe:nth-child(3)').css({
-							'background-color': 'rgba(247,124,46,0.9)',
-							'color': 'black'
-						});
-					} else {
-						$(dashboardElem + '.dashboard-pane-subframe:nth-child(3)').css({
-							'background-color': 'initial',
-							'color': defaultPwnClr
-						});
+					// if(cnt >= pwn && pwn != 0) {
+					// 	$(dashboardElem + '.dashboard-pane-subframe:nth-child(3)').css({
+					// 		'background-color': 'rgba(247,124,46,0.9)',
+					// 		'color': 'black'
+					// 	});
+					// } else {
+					// 	$(dashboardElem + '.dashboard-pane-subframe:nth-child(3)').css({
+					// 		'background-color': 'initial',
+					// 		'color': defaultPwnClr
+					// 	});
 					}
 					/** Progress length & value **/
 					$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress-bar').css('width', pVal);
@@ -248,29 +270,41 @@ function clearDashboard() {
 	var offset = (flags.dashboard.currPage - 1) * flags.dashboard.maxDevicePerPage;
 	for(var i = 1; i <= 10; i++) {
 		var dashboardElem = '#' + flags.currPage + ' .dashboard-pane:nth-child(' + (i + 2) + ') > .dashboard-pane-frame > ';
-		/** Machine ID **/
+		/** LINE ID **/
 		$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(2)').find('span').html(i + offset);
-		/** Status **/
+		/** Target **/
 		$(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').find('span').html('--');
-		if(flags.currPage == 'dashboard-tab') {
-			/** Prewarn **/
-			$(dashboardElem + '.dashboard-pane-subframe:nth-child(3) > div:nth-child(2)').find('span').html('--');
-			/** Progress **/
-			$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(2)').find('span').html('-- / --');
-		} else {
-			/** Job duration **/
-			$(dashboardElem + '.dashboard-pane-subframe:nth-child(3) > div:nth-child(2)').find('span').html('-- : -- : --');
-			/** downtime duration **/
-			$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(2)').find('span').html('-- : -- : --');
-		}
+		/** Count **/
+		$(dashboardElem + '.dashboard-pane-subframe:nth-child(3) > div:nth-child(2)').find('span').html('--');
+		/** Differece **/
+		$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(2)').find('span').html('--');
+		
 		/** Backlog Icon **/
-		$(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(1)').find('.backlogIcon').hide();
+		// $(dashboardElem + '.dashboard-pane-subframe:nth-child(1) > div:nth-child(1)').find('.backlogIcon').hide();
 		/** Prewarn Color **/
-		$(dashboardElem + '.dashboard-pane-subframe:nth-child(3)').css({'background-color': 'initial', 'color': defaultColor});
+		// $(dashboardElem + '.dashboard-pane-subframe:nth-child(3)').css({'background-color': 'initial', 'color': defaultColor});
 		/** Status Color **/
-		$(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').css('color', 'inherit');
+		// $(dashboardElem + '.dashboard-pane-subframe:nth-child(2) > div:nth-child(2)').css('color', 'inherit');
+		
+		// LINE ID color
+		$(dashboardElem + '.dashboard-pane-subframe:nth-child(1)').css('backgroundColor', 'initial');
 		/** Progress length & value **/
 		$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress-bar').css('width', '0%');
 		$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress-bar-title').html('0%');
+		
+	
+		if($(document.body).hasClass('dark-bg')){
+			$(dashboardElem).css('color', '#5C636E');
+			$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress-bar-title').css('color', '#5C636E');
+			$(dashboardElem + '.dashboard-pane-subframe').css('backgroundColor', '#393E46');
+			$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress').css('border', '1px solid #5C636E');
+			$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress').css('backgroundColor', '#393E46');
+		}else{
+			$(dashboardElem).css('color', '#B2B1B9');
+			$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress-bar-title').css('color', '#B2B1B9');
+			$(dashboardElem + '.dashboard-pane-subframe').css('backgroundColor', '#d7d9de');
+			$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress').css('border', '1px solid #d7d9de');
+			$(dashboardElem + '.dashboard-pane-subframe:nth-child(4) > div:nth-child(3)').find('.progress').css('backgroundColor', '#c5c7c9');
+		}
 	}
 }

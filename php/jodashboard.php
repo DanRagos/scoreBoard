@@ -17,18 +17,15 @@
     if ($result) { // if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_array($result)) {
             $summary = array(
-                // 'devdid' => $row["id"],
-                'devdid' => $row["deviceOrder"],
-                'devbck' => $row["onBacklog"],
-                'devnme' => $row["devicename"], 
-                'devsta' => $row["state"], 
-                'devsid' => $row["jobSchedule_ID"],
-                'devmst' => $row["machineStatus"],  
-                'devpwn' => $row["prewarn"] == "--" ? 0 : round($row["prewarn"],1),
-                'devcnt' => $row["countTotal"] == "--" ? 0 : round($row["countTotal"],1),
-                'devtgt' => $row["target"] == "--" ? 0 : round($row["target"],1),
-                // 'devlid' => $row['unproductiveLog_id'],
-                // 'devcus' => $row['unproductiveCause'],
+                'brdid' => $row["id"],
+                'brdord' => $row["deviceOrder"],
+                'brdbck' => $row["onBacklog"],
+                'brdname' => $row["devicename"], 
+                'brdsta' => $row["state"], 
+                'jiid' => $row["jobSchedule_ID"], 
+                'lnsta' => $row["machineStatus"],  
+                'brdtgt' => $row["target"] == "--" ? 0 : round($row["target"],1),
+                'brdcnt' => $row["count"] == "--" ? 0 : round($row["count"],1),
             );
             array_push($response, $summary);
         }

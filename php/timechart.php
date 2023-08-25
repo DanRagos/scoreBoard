@@ -17,7 +17,7 @@
 		$max =  $_POST['limitMax'];
 
 		$temp = array();
-		$query = "call gemba_db.getProductionSummaryAndExportByDateFilter('".$start."', '".$end."')";
+		$query = "call scoreboard_db.getProductionSummaryAndExportByDateFilter('".$start."', '".$end."')";
 		// $query = "call gemba_db.getProductionSummaryAndExportByDateFilterv2('{$start}','{$end}',{$min},{$max})";
 		$result = mysqli_query($con, $query);
 		if ($result) { // if (mysqli_num_rows($result) > 0) {
@@ -41,7 +41,7 @@
 		$response += [ 0 => $temp];
 
 		$temp = array();
-		$query = "call gemba_db.getProductionDowntimeByDateFilter('".$start."', '".$end."')";
+		$query = "call scoreboard_db.getProductionDowntimeByDateFilter('".$start."', '".$end."')";
 		// $query = "call gemba_db.getProductionDowntimeByDateFilterv2('{$start}','{$end}',{$min},{$max})";
 		$result = mysqli_query($con, $query);
 		if ($result) { // if (mysqli_num_rows($result) > 0) {

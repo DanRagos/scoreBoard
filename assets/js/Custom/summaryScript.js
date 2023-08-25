@@ -12,17 +12,26 @@ function initSummary(prendvisible = true, scendvisible = false) {
 			    "infoEmpty": lang[flags.pref.lang].general.datatable.infoempty,
 			},
 			"columnDefs": [
+		        // {
+		        //     "targets": [ 3 ],
+		        //     "visible": prendvisible,
+		        // },
+		        // {
+		        //     "targets": [ 5 ],
+		        //     "visible": scendvisible,
+		        // },
+		        { "width": "102px", "targets": 7 },
+		        { "type": 'natural', "targets": [0, 1, 4, 5, 7] },
+		        { targets: 0, orderData: [0, 2, 1] },
+	            { targets: 1, orderData: [1, 2] },
+	            { targets: 2, orderData: [2, 0, 1] },
+	            { targets: 3, orderData: [3, 2, 1] },
+	            { targets: 4, orderData: [4, 2, 1] },
+	            { targets: 5, orderData: [5, 2, 1] },
+	            { targets: 6, orderData: [6, 2, 1] },
+	            { targets: 7, orderData: [7, 2, 1] },
 				// Hanz: Fix for problem where if there is a long job order name,
 				// column display can become one only (machine) on page width resize.
-				{
-		            "targets": [ 2 ],
-		            "visible": prendvisible,
-		        },
-		        {
-		            "targets": [ 6 ],
-		            "visible": scendvisible,
-		        },
-				
 				{ className: "all", targets: [0, 1, 2]}
 		    ],
 		    columns: [
@@ -34,42 +43,11 @@ function initSummary(prendvisible = true, scendvisible = false) {
 				{ data: "devstt" },
 				{ data: "devend" },
 				{ data: "devtgt" },
-				{ data: "devact" },
-				{ data: "devdif",
-					render: function(data, type, row) {
-						var val; 
-						if (row.devoff == 'OFFLINE' && (row.devsta == 'PRODUCTIVE' || row.devsta == 'UNPRODUCTIVE')) {
-							val = '<i class="fas fa-question-circle"></i>';
-						} else {
-							val = data;
-						}
-						return val;
-					}
-				},
-				{ data: "devprod",
-					render: function(data, type, row) {
-						var val; 
-						if (row.devoff == 'OFFLINE' && (row.devsta == 'PRODUCTIVE' || row.devsta == 'UNPRODUCTIVE')) {
-							val = '<i class="fas fa-question-circle"></i>';
-						} else {
-							val = data;
-						}
-						return val;
-					}
-				},
-				{ data: "devdown",
-					render: function(data, type, row) {
-						var val; 
-						if (row.devoff == 'OFFLINE' && (row.devsta == 'PRODUCTIVE' || row.devsta == 'UNPRODUCTIVE')) {
-							val = '<i class="fas fa-question-circle"></i>';
-						} else {
-							val = data;
-						}
-						return val;
-					}
-				},
-				
-				{ data: "devsts",
+				{ data: "devcnt" },
+				{ data: "devdif" },
+				{ data: "devrun" },
+				{ data: "devdwn"},
+				{ data: "devsta",
 					render: function(data, type, row) {
 						var retval;
 						retval = lang[flags.pref.lang].status[row.devsta];
@@ -87,10 +65,10 @@ function initSummary(prendvisible = true, scendvisible = false) {
 				/** this is where we put certain conditions on each row,
 				  * such as highlight and status.
 				 **/
-				if ( flags.displayMode.others == 'today' && (data.devsts == 'PRODUCTIVE' || data.devsts == 'UNPRODUCTIVE')) {
+				if (data.devoff == 'OFFLINE' && flags.displayMode.others == 'today' && (data.devsta == 'PRODUCTIVE' || data.devsta == 'UNPRODUCTIVE')) {
 					$(row).addClass('offlineRow');
 				} else {
-					switch(data.devsts) {
+					switch(data.devsta) {
 						case 'PRODUCTIVE':
 							$(row).addClass('transRow');
 							break;
@@ -106,11 +84,6 @@ function initSummary(prendvisible = true, scendvisible = false) {
 
 						case 'COMPLETED':
 							$(row).addClass('blueRow');
-							break;
-
-							
-						case 'DOWNTIME':
-							$(row).addClass('redRow');
 							break;
 					}
 				}
@@ -350,7 +323,7 @@ function summaryUpdate() {
 
 	flags.ajaxRequestStatus = $.ajax({
 		type: 'POST',
-		url: 'php/getSummary.php',
+		url: 'php/jofiltersummary.php',
 		data: {
 			lang: flags.pref.lang, 
 			start: dateToUse.fr, 
@@ -363,7 +336,7 @@ function summaryUpdate() {
 		dataType:'json',
 		async: true,
 		success: function(data) {
-			console.log(data);
+			console.log(data)
 			if($.isEmptyObject(flags.summary.table)) {
 				initSummary();
 				showTableLoading();

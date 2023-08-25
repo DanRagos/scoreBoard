@@ -180,7 +180,6 @@ var flags = {
         isChartMode: false,
         instanceNames: [],
         chart: {},
-        data: {}
     },
     reject: {
         isFiltered: false,
@@ -241,9 +240,9 @@ var flags = {
         prevGroup: '',
         colorGroup: {
             dark: {
-                PRODUCTIVE: '#00da73',
-                UNPRODUCTIVE: '#ff597b',
-                COMPLETED: '#00a3dd',
+                PRODUCTIVE: '#28a745',
+                UNPRODUCTIVE: '#dc3545',
+                COMPLETED: '#007bff',
                 'COMPLETED*': '#51b5e0',
             },
             light: {
@@ -357,9 +356,9 @@ var filters = {
     summary: [
         'Machine',
         'Job Order',
-        'Target',
-        'Actual',
-        'Difference',
+        'Model',
+        'Material',
+        'Operator',
         'Status',
     ],
 };
@@ -376,12 +375,8 @@ var filterKeys = {
     Source: 'devdts',
     Reject: 'devrej',
     Output: 'devout',
-    Status: 'devsts',
-    //Status: 'devsta',
+    Status: 'devsta',
     SchedId: 'devsid',
-    Actual: 'devact',
-    Difference: 'devdif',
-    
 };
 
 // var cachedDate = {
@@ -1390,7 +1385,6 @@ function preferencesSetting() {
     }
 
     /** Translate pages **/
-    
     translatePages();
 
     if (flags.pref.tableColWrap) {
@@ -2306,7 +2300,7 @@ function tableFilterHandlers() {
             .find('label')
             .html(flags.summary.showSchedEnd ? 'ON' : 'OFF');
 
-        var col = flags.summary.table.column(5);
+        var col = flags.summary.table.column(13);
         col.visible(!col.visible());
     });
     $('#show-prodend').on('click', function () {
@@ -2316,7 +2310,7 @@ function tableFilterHandlers() {
             .find('label')
             .html(flags.summary.showProdEnd ? 'ON' : 'OFF');
 
-        var col = flags.summary.table.column(2);
+        var col = flags.summary.table.column(3);
         col.visible(!col.visible());
     });
 }
@@ -3341,12 +3335,11 @@ function userActionHandlers() {
     $('#logoutYes').on('click', function () {
         $.ajax({
             type: 'POST',
-            url: 'php/signin/logout.php',
+            url: '/php/signin/logout.php',
             data: {},
             dataType: 'json',
             async: true,
             success: function (data) {
-                console.log(data);
                 if (!$.isEmptyObject(data)) {
                     window.location.replace(data);
                 }
@@ -3525,14 +3518,12 @@ function chartHandlers() {
 
             getChartInstances(function () {
                 if ($.isEmptyObject(timechart)) {
-                    console.log('1st chart instances')
                     setTimeout(function () {
                         $('#graphModal').modal('hide');
                         getTimeChartDataNew();
                     }, 500);
                 } else {
                     setTimeout(function () {
-                        console.log('2nd chart instances')
                         $('#graphModal').modal('hide');
                         getTimeChartDataNew();
                     }, 500);
@@ -3600,7 +3591,7 @@ const getTimeChartDataNew = () => {
         dateToUse.fr = addStartTime({dateString: $('.dateFr:not(.schedDate .dbmDate)').eq(0).val()});
         dateToUse.to = addEndTime({dateString: $('.dateTo:not(.schedDate .dbmDate)').eq(0).val()});
     }
-    console.log(dateToUse.fr);
+
     $.ajax({
         type: 'POST',
         url: 'php/timechart.php',
@@ -3608,12 +3599,11 @@ const getTimeChartDataNew = () => {
             start: dateToUse.fr,
             end: dateToUse.to,
             limitMin: 1,
-            limiMax: 4,
+            limitMax: 4,
         },
         dataType: 'json',
         async: true,
         success: (data) => {
-           
             console.log('from timechart.php');
             console.log(data);
             if (!$.isEmptyObject(data)) {
@@ -3950,7 +3940,7 @@ function getTimechartData() {
 function getChartInstances(callback) {
     $.ajax({
         type: 'POST',
-        url: 'php/jogetLineDevices.php',
+        url: 'php/jogetdevices.php',
         data: '',
         dataType: 'json',
         async: true,
@@ -4150,7 +4140,6 @@ function loadPageResources() {
                         $('#cancelLoading').prop('disabled', true);
     
                         getChartInstances(function () {
-                            console.log('getChartInstances');
                             setTimeout(() => {
                                 getTimeChartDataNew();
                             }, 500);

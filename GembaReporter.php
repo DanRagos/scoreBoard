@@ -224,39 +224,23 @@
         <div class="tablist-container">
             <ul role="tablist">
                 <!-- Start: control -->
-                <li><button id="control-tab-btn" class="btn btn-primary btn-tab" type="button" style="color: #f8f9fa;" data-toggle="tab" data-target="#control-tab" role="tab">
+                   
+                        
+                            <li><button class="btn btn-primary btn-tab" type="button" role="tab" data-toggle="tab" data-target="#dashboard-tab"><i class="fa fa-tachometer"></i>&nbsp;<span id="tabDashboardtitle">Count Dashboard</span></button></li>
+                <li><button id="control-tab-btn" class="btn btn-primary btn-tab" type="button" style="color: #f8f9fa; display:none;" data-toggle="tab" data-target="#control-tab" role="tab">
                     <i class="fa fa-toggle-on"></i>&nbsp;<span id="tabControltitle">Control</span>
                 </button></li>
-                <li><button id="schedule-tab-btn" class="btn btn-primary btn-tab" type="button" role="tab" data-toggle="tab" data-target="#schedule-tab"><i class="fa fa-calendar"></i>&nbsp; 
-                    <span id="tabSchedtitle">Schedule</span>
-                </button></li>
+               
                 <!-- End: control -->
                 <!-- Start: display -->
-                <li><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#display-option" aria-expanded="false"><i class="fa fa-tv"></i>&nbsp;<span id="tabDisplaytitle">Display</span><i class="fa fa-caret-down float-right"></i></button>
-                    <div id="display-option"
-                        class="collapse">
-                        <ul>
-                            <li><button class="btn btn-primary btn-tab" type="button" role="tab" data-toggle="tab" data-target="#dashboard-tab"><i class="fa fa-tachometer"></i>&nbsp;<span id="tabDashboardtitle">Count Dashboard</span></button></li>
-                            <li><button class="btn btn-primary btn-tab" type="button" role="tab" data-toggle="tab" data-target="#duration-tab"><i class="fa fa-clock-o"></i>&nbsp;<span id="tabDurationtitle">Duration Dashboard</span></button></li>
-                            <li><button class="btn btn-primary btn-tab" type="button" role="tab" data-toggle="tab" data-target="#overview-tab"><i class="fa fa-th"></i>&nbsp;<span id="tabOverviewtitle">Overview</span></button></li>
-                        </ul>
-                    </div>
-                </li>
+              
                 <!-- End: display -->
                 <!-- Start: records -->
-                <li><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#record-options" aria-expanded="false"><i class="fa fa-list-alt"></i>&nbsp;<span id="tabRecordtitle">Records</span><i class="fa fa-caret-down float-right"></i></button>
-                    <div id="record-options"
-                        class="collapse">
-                        <ul>
+                
                             <li><button id="summary-tab-btn" class="btn btn-primary btn-tab" type="button" role="tab" data-toggle="tab" data-target="#summary-tab"><i class="fa fa-bar-chart"></i>&nbsp;<span id="tabSummarytitle">Summary</span></button></li>
-                            <li><button id="reject-tab-btn" class="btn btn-primary btn-tab" type="button" role="tab" data-toggle="tab" data-target="#reject-tab"><i class="fa fa-trash-o"></i>&nbsp; <span id="tabRejecttitle">Rejects</span></button></li>
-                            <li><button id="visual-tab-btn" class="btn btn-primary btn-tab" type="button" role="tab" data-toggle="tab" data-target="#visual-tab"><i class="fa fa-chart-area"></i>&nbsp;<span id="tabVisualizationtitle">Productivity</span></button></li>
-                            <li><button id="detail-tab-btn" class="btn btn-primary btn-tab" type="button" role="tab" data-toggle="tab" data-target="#detail-tab"><i class="fas fa-list-ul"></i>&nbsp; <span id="tabDetailTitle">JO Time Chart</span></button></li>
-                            <li hidden><button class="btn btn-primary btn-tab" type="button" role="tab" data-toggle="tab" data-target="#unproductive-tab"><i class="fa fa-level-down"></i>&nbsp; &nbsp;<span id="tabUnprodtitle">Unproductive</span></button></li>
                             <!-- <li><button id="schedule-tab-btn" class="btn btn-primary btn-tab" type="button" role="tab" data-toggle="tab" data-target="#schedule-tab"><i class="fa fa-calendar"></i>&nbsp; <span id="tabSchedtitle">Schedule</span></button></li> -->
-                        </ul>
-                    </div>
-                </li>
+                      
+              
                 <!-- End: records -->
                 <!-- Start: Settings -->
                 <li><button class="btn btn-primary" id="sidepanel-config-btn" type="button" data-target="#settings-option" data-toggle="collapse" aria-expanded="false"><i class="fa fa-cogs"></i>&nbsp;<span id="tabConfigtitle">Configuration</span><i class="fa fa-caret-down float-right"></i></button>
@@ -287,7 +271,7 @@
         <!-- Start: page-content -->
         <div id="page-content" class="tab-content">
         <?php //include 'pages/control-tab.php' ;?>
-        <?php //include 'pages/dashboard-tab.php' ;?>
+        <?php include 'pages/dashboard-tab.php' ;?>
         <?php //include 'pages/duration-tab.php' ;?>
         <?php //include 'pages/overview-tab.php' ;?>
         
@@ -319,7 +303,7 @@
                 <!-- Start: table -->
                 <div id="summary-content" class="tbl-container">
                     <div class="table-responsive text-center">
-                        <table class="table table-sm nowrap" id="summaryTbl" collspacing="0" width="100%">
+                    <table class="table table-sm nowrap" id="summaryTbl" collspacing="0" width="100%">
                             <thead>
                                 <tr>
                                     <th>Machine</th>
@@ -331,14 +315,7 @@
                                     <th>Target Quantity</th>
                                     <th>Prewarn Quantity</th>
                                     <th>Output Quantity</th>
-                                    <th>Reject Quantity</th>
-                                    <th>Job Duration (minutes)</th>
-                                    <th>Productive Duration (minutes)</th>
-                                    <th>Total Downtime (minutes)</th>
-                                    <th>Scheduled End</th>
-                                    <th>Operator</th>
-                                    <th>Next Item</th>
-                                    <th>Status</th>
+                                
                                 </tr>
                             </thead>
                             <tbody></tbody>

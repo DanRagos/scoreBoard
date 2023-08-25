@@ -118,6 +118,7 @@ const timeGraphZoomEventHandler = (e) => {
     
 
 const initTimeGraphNew = (xMinimum, xMaximum, processedData, _theme) => {
+    console.log(processedData);
 
     //  console.log("initTimeGraph called!");
     //  console.log(processedData);
@@ -163,6 +164,7 @@ const initTimeGraphNew = (xMinimum, xMaximum, processedData, _theme) => {
         dataPointWidth: 40,
         title: titleObject,
         toolTip: {
+            
             content: (e) => {
                 const {
                     label,
@@ -174,6 +176,7 @@ const initTimeGraphNew = (xMinimum, xMaximum, processedData, _theme) => {
                     extraActualStart,
                     extraActualEnd,
                 } = e.entries[0].dataPoint;
+                console.log("Data Point:", e.entries[0].dataPoint);
                 let toolTipContent = `<b>${label}</b> <br /> ${lang[flags.pref.lang].jobdetails.job}: ${extraJob} <br /> `;
                 toolTipContent += `${lang[flags.pref.lang].jobdetails.prodstatus}: ${lang[flags.pref.lang].status[extraStatus]} <br /> `;
                 toolTipContent += `${lang[flags.pref.lang].chart.from}: ${extraFrom} <br />${lang[flags.pref.lang].chart.to}: ${extraTo} <br /> `;

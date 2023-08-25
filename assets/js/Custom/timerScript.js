@@ -24,76 +24,77 @@ function query_timer() {
 	}
 
 	/* Start and Stop timeout handler: blocks other time based query */
-    if(timer.buttonTimer.enabled) {
-    	if (flags.control.startStopRequest == null) {
-    		checkJobState();
-    	}
+    // if(timer.buttonTimer.enabled) {
+    // 	if (flags.control.startStopRequest == null) {
+    // 		checkJobState();
+    // 	}
     	
-    	if(timer.buttonTimer.ticks >= startandstopTimeoutVal) {
-    		/* Change the prompt! */
-    		if(flags.control.startStopRequest != null) {
-				flags.control.startStopRequest.abort();
-				flags.control.startStopRequest = null;
-			}
+    // 	if(timer.buttonTimer.ticks >= startandstopTimeoutVal) {
+    // 		/* Change the prompt! */
+    // 		if(flags.control.startStopRequest != null) {
+	// 			flags.control.startStopRequest.abort();
+	// 			flags.control.startStopRequest = null;
+	// 		}
 
-    		if(flags.control.addNewSchedOnStart) {
-				deleteAddedSchedule(flags.control.currSchedId);
-				clearMobileDashboard();
-				getBlacklist('user');
-			}
-			flags.control.addNewSchedOnStart = false;
-    		closesnsModal(lang[flags.pref.lang].control.prompts.startTimeout);
-    	} else {
-    		timer.buttonTimer.ticks++;
-    	}
-    	return;
-    }
+    // 		if(flags.control.addNewSchedOnStart) {
+	// 			deleteAddedSchedule(flags.control.currSchedId);
+	// 			clearMobileDashboard();
+	// 			getBlacklist('user');
+	// 		}
+			
+	// 		flags.control.addNewSchedOnStart = false;
+    // 		closesnsModal(lang[flags.pref.lang].control.prompts.startTimeout);
+    // 	} else {
+    // 		timer.buttonTimer.ticks++;
+    // 	}
+    // 	return;
+    // }
 
     /* Overview sound */
-    alarmTimeoutTimer();
+    // alarmTimeoutTimer();
 
 	if(flags.ajaxRequestStatus == null) {
 		console.log(flags.currPage + " query executed.");
 		timer.failCnt = 0;
 
 		switch(flags.currPage) {
-			case 'control-tab':
-				controlDashboardUpdate();
-				break;
+			// case 'control-tab':
+			// 	controlDashboardUpdate();
+			// 	break;
 
 			case 'dashboard-tab':
 				dashboardUpdate();
 				break;
 
-			case 'duration-tab':
-				durationTabUpdate();
-				break;
+			// case 'duration-tab':
+			// 	durationTabUpdate();
+			// 	break;
 
-			case 'overview-tab':
-				overviewUpdate();
-				break;
+			// case 'overview-tab':
+			// 	overviewUpdate();
+			// 	break;
 
 			case 'summary-tab':
 				summaryUpdate();
 				break;
 
-			case 'reject-tab':
-				rejectUpdate();
-				break;
+			// case 'reject-tab':
+			// 	rejectUpdate();
+			// 	break;
 
-			case 'unproductive-tab':
-				// unproductiveUpdate();
-				break;
+			// case 'unproductive-tab':
+			// 	// unproductiveUpdate();
+			// 	break;
 
-			case 'schedule-tab':
-				scheduleUpdate();
-				break;
+			// case 'schedule-tab':
+			// 	scheduleUpdate();
+			// 	break;
 
-			case 'date-tab':
-				if(flags.system.pageIndex == 1) {
-					getDateAndTime();
-				}
-				break;
+			// case 'date-tab':
+			// 	if(flags.system.pageIndex == 1) {
+			// 		getDateAndTime();
+			// 	}
+			// 	break;
 
 			default:
 				break;
@@ -111,7 +112,7 @@ function query_timer() {
 	}
 
 	/** autoscroll timer **/
-	if((flags.currPage == 'dashboard-tab' || flags.currPage == 'duration-tab') && flags.pref.autoscroll) {
+	if((flags.currPage == 'dashboard-tab') && flags.pref.autoscroll) {
 		if(timer.scrollCounter >= flags.pref.interval) {
 			if(flags.dashboard.pageLimit == 1) {
 				return;

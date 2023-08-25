@@ -208,8 +208,6 @@ var lang = {
         },
         'status': {
             'COMPLETED': 'COMPLETED',
-            'DOWNTIME': 'DOWNTIME',
-            'RUNNING': 'RUNNING',
             'COMPLETED*': 'COMPLETED*',
             'CONTINUED': 'CONTINUED',
             'down': 'Down',
@@ -317,10 +315,10 @@ var lang = {
         'dashboard': {
             'pagetitle': 'Dashboard',
             'tabtitle': 'Count Dashboard',
-            'machine': 'Machine ID',
-            'status': 'Status',
-            'prewarn': 'Prewarn',
-            'progress': 'Progress',
+            'machine': 'Line ID',
+            'status': 'Target Qty.',
+            'prewarn': 'Actual Qty.',
+            'progress': 'Difference',
             'page': 'Page ',
         },
         'duration': {
@@ -335,22 +333,39 @@ var lang = {
             'pagetitle': 'Summary',
             'tabtitle': 'Summary',
             'columns': [ 
-                'Line No.', 
+                'Line No.',  
                 'Production Start', 
                 'Production End', 
                 'Target Quantity', 
                 'Actual Quantity', 
-                'Difference Quantity', 
-                'Productive Time\n(minutes)', 
-                'Downtime\n(minutes)', 
-                'Status' 
+                'Difference',
+                'Productive Time',
+                'Down Time',
+                'Status',
+                // 'Line No.', 
+                // 'Job Order', 
+                // 'Production Start', 
+                // 'Production End', 
+                // 'Model', 
+                // 'Material', 
+                // 'Target Quantity', 
+                // 'Prewarn Quantity', 
+                // 'Output Quantity', 
+                // 'Reject Quantity', 
+                // 'Job Duration\n(minutes)', 
+                // 'Productive Duration\n(minutes)', 
+                // 'Total Downtime\n(minutes)', 
+                // 'Scheduled End', 
+                // 'Operator', 
+                // 'Next Item', 
+                // 'Status' 
             ],
             'filters': [
                 'Machine',
                 'Job Order',
-                'Target',
-                'Actual',
-                'Difference',
+                'Model',
+                'Material',
+                'Operator',
                 'Status'
             ],
             // 'nodatatodisplay': 'No data to display',
@@ -629,7 +644,7 @@ var lang = {
                 'selected': "Items Selected",
                 'apply': "Apply Filter",
                 'checkboxes': [ 
-                    "Show Difference", 
+                    "Show Scheduled End", 
                     "Show Actual Production End", 
                     "Consolidate Jobs from the same Job Schedule" 
                 ],
@@ -3083,7 +3098,7 @@ var lang = {
 }
 
 function translatePages() {
-    console.log('translatePages(si dandan hehe)');
+    console.log('translatePages()');
     if(flags.ajaxRequestStatus !== null) {
         flags.ajaxRequestStatus.abort();
         flags.ajaxRequestStatus = null;

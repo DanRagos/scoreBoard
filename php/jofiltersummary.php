@@ -89,6 +89,7 @@
 				'devtgt' => round($row["target"],1), 
 				'devpwn' => round($row["prewarn"],1),
 				'devcnt' => round($row["count"],1),
+				'devdif' => round($row["target"] - $row["count"],1),
 				'devrej' => round($row["reject"],1),
 				'devrun' => $runtm,
 				'devdwn' => $dwntm,

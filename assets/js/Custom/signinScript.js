@@ -48,9 +48,9 @@ $(document).ready(function() {
 				dataType: 'json',
 				async: true,
 				success: function(data) {
-					alert(data);
+				console.log(data);
 					if(!$.isEmptyObject(data)) {
-						window.location.replace(data);
+						// window.location.replace(data);
 					}
 				},
 				fail: function() {
